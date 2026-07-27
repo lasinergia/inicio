@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades — SINERG.ia</title>
+  <meta name="description"
+    content="Las actividades prácticas de cada episodio de SINERG.ia: prompts, ejercicios y retos para llevar la IA a tu día a día.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/actividades.css">
+  <link rel="stylesheet" href="/css/assets.css">
+  <link rel="stylesheet" href="/css/game.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="https://lasinergia.com.co/" class="logo">✦ Sinerg<em>.ia</em></a>
+    <div class="navlinks">
+      <a href="https://lasinergia.com.co/" class="back">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Minijuego</span>
+    <h1>A Conectar Esos Puntos Yani :D</h1>
+    <p>Se puede clickear punto por punto o tambien arrastrar UwU, Tambien Funciona en Mobile</p>
+  </section>
+
+  <main>
+    <section class="cable-game-wrapper">
+  <div class="cable-header">
+    <div class="stat-badge">⏱️ <strong style="color: #080808ea;"><span id="cable-timer">00:00</span></strong></div>
+    <div class="stat-badge">🎯 <strong style="color: #080808ea;">Intentos:</strong> <strong id="cable-attempts" style="color: #665a9c">0</strong></div>
+    <div class="stat-badge">🔌 <strong style="color: #080808ea;">Conexiones: </strong><strong id="cable-matches" style="color: #665a9c">0 / 0</strong></div>
+  </div>
+
+  <p class="cable-instructions">
+    ✨ <strong>Arrastra la bolita</strong> o haz <strong>clic en una pregunta y luego en su respuesta</strong> para conectarlas.
+  </p>
+
+  <div class="cable-board" id="cable-board">
+    <svg class="cable-svg-layer" id="cable-svg">
+      <path id="temp-cable" fill="none" stroke="#c084fc" stroke-width="4" stroke-dasharray="6,6" style="display:none;"></path>
+    </svg>
+
+    <div class="cable-column" id="col-questions"></div>
+
+    <div class="cable-column" id="col-answers"></div>
+  </div>
+
+  <div class="cable-modal-overlay" id="cable-modal">
+    <div class="cable-modal-card">
+      <div class="modal-icon" style="color: #000;">🎉 Felicitaciones</div>
+      <h2>¡Conexiones Completadas!</h2>
+      <p>Has vinculado todos los conceptos correctamente en SINERG.ia.</p>
+
+      <div class="modal-score-grid">
+        <div class="score-box">
+          <span>Puntaje Final</span>
+          <strong class="purple-text" id="final-score">0 PTS</strong>
+        </div>
+        <div class="score-box">
+          <span>Precisión</span>
+          <strong id="final-accuracy">0%</strong>
+        </div>
+        <div class="score-box">
+          <span>Tiempo</span>
+          <strong id="final-time">00:00</strong>
+        </div>
+        <div class="score-box">
+          <span>Intentos</span>
+          <strong id="final-attempts">0</strong>
+        </div>
+      </div>
+
+      <button class="btn-restart" id="btn-restart">🔄 Jugar de nuevo</button>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <span class="logo">✦ Sinerg.ia</span>
+    Un espacio para pensar la IA con calma, sin mitos y sin miedo.
+  </footer>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>
