@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRIQZFzQx7aTu2jRyNXMnEbXVjuO95m4F2101WnDa_sp_1k9awUXcIK1MtA34pw6px/exec";
 
 class CableMatchingGame {
   constructor(config) {

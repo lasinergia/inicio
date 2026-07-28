@@ -296,7 +296,7 @@
 }
 
 .cable-modal-card {
-  background: #18132e;
+  background: #fff;
   border: 1px solid var(--sn-purple-light);
   border-radius: 20px;
   padding: 24px 20px;
@@ -315,19 +315,19 @@
 }
 
 .score-box {
-  background: rgba(255, 255, 255, 0.04);
+  background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   font-size: 0.78rem;
-  color: #94a3b8;
+  color: var(--sn-bg-dark);
 }
 
 .score-box strong {
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--sn-purple-main);
   margin-top: 2px;
 }
 
