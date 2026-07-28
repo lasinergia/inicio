@@ -1,25 +1,22 @@
-// ==========================================
-// PREGUNTAS Y RESPUESTAS (CONFIGURABLE)
-// ==========================================
-const CABLE_PAIRS = [
-  { id: 1, q: "🧠 Algoritmo de IA", a: "Instrucciones lógicas para procesar datos." },
-  { id: 2, q: "🎙️ Podcast Sinerg.ia", a: "Espacio de divulgación creado por Yani y Mari." },
-  { id: 3, q: "🤖 Prompting", a: "Técnica para darle indicaciones precisas a la IA." },
-  { id: 4, q: "🌐 GitHub Pages", a: "Servidor gratuito donde se aloja esta página." },
-  { id: 5, q: "🔮 Alucinación", a: "Respuesta inventada que la IA afirma con seguridad." }
-];
+const GOOGLE_SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
 
 class CableMatchingGame {
-  constructor(pairs) {
-    this.pairs = pairs;
-    this.connections = []; // Almacena cables guardados
-    this.selectedQCard = null; // Pregunta seleccionada por clic
+  constructor(config) {
+    this.episodeId = config.episodeId || "T1E4";
+    this.pairs = config.pairs || [];
+    
+    // Asignar el contenedor específico de este juego
+    this.container = document.getElementById(config.containerId) || document;
+
+    this.userData = { nombre: "", pais: "", correo: "" };
+    this.connections = [];
+    this.selectedQCard = null;
     this.attempts = 0;
     this.matches = 0;
     this.timerSeconds = 0;
     this.timerInterval = null;
 
-    // Estado para Drag & Drop y diferenciación de Clics
+    // Estado Drag & Drop
     this.isDragging = false;
     this.hasMovedDistance = false;
     this.pointerStartX = 0;
@@ -27,34 +24,71 @@ class CableMatchingGame {
     this.activeDragDot = null;
     this.activeDragQuestionCard = null;
 
-    // DOM Elements
-    this.boardEl = document.getElementById("cable-board");
-    this.svgEl = document.getElementById("cable-svg");
-    this.tempCable = document.getElementById("temp-cable");
-    this.colQ = document.getElementById("col-questions");
-    this.colA = document.getElementById("col-answers");
-    this.modalEl = document.getElementById("cable-modal");
+    // Buscar elementos EXCLUSIVAMENTE dentro del contenedor de este episodio
+    this.regScreen = this.container.querySelector(".reg-screen");
+    this.gameScreen = this.container.querySelector(".game-screen");
+    this.regForm = this.container.querySelector(".reg-form");
+    
+    this.boardEl = this.container.querySelector(".cable-board");
+    this.svgEl = this.container.querySelector(".cable-svg-layer");
+    this.tempCable = this.container.querySelector(".temp-cable");
+    this.colQ = this.container.querySelector(".col-questions");
+    this.colA = this.container.querySelector(".col-answers");
+    this.modalEl = this.container.querySelector(".cable-modal-overlay");
 
     this.init();
   }
 
   init() {
-    document.getElementById("btn-restart").addEventListener("click", () => this.restartGame());
+    if (this.regForm) {
+      // e.preventDefault() evita el refresco de pantalla al enviar el form
+      this.regForm.addEventListener("submit", (e) => this.handleRegistration(e));
+    }
 
-    // Eventos globales de puntero (Ratón y Pantallas Táctiles unificados)
+    const btnRestart = this.container.querySelector(".btn-restart");
+    if (btnRestart) {
+      btnRestart.addEventListener("click", () => this.restartGame());
+    }
+
     window.addEventListener("pointermove", (e) => this.onPointerMove(e));
     window.addEventListener("pointerup", (e) => this.onPointerUp(e));
 
-    // Persistencia adaptativa al redimensionar o hacer scroll
     window.addEventListener("resize", () => this.updateAllCablePositions());
     window.addEventListener("scroll", () => this.updateAllCablePositions());
+  }
+
+  handleRegistration(e) {
+    // ⚠️ CLAVE: Evita la recarga de página por envío de formulario HTML
+    e.preventDefault();
+
+    const nameInput = this.container.querySelector(".user-name");
+    const countryInput = this.container.querySelector(".user-country");
+    const emailInput = this.container.querySelector(".user-email");
+
+    const nombre = nameInput ? nameInput.value.trim() : "";
+    const pais = countryInput ? countryInput.value.trim() : "";
+    const correo = emailInput ? emailInput.value.trim() : "";
+
+    if (!nombre || !pais) return;
+
+    this.userData = { nombre, pais, correo: correo || "No especificado" };
+    
+    const playerDisplay = this.container.querySelector(".player-display");
+    if (playerDisplay) playerDisplay.textContent = nombre;
+
+    this.regScreen.style.display = "none";
+    this.gameScreen.style.display = "block";
+
+    // Forzar ajuste de posiciones SVG
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 50);
 
     this.startGame();
   }
 
   startGame() {
-    // Limpiar capa SVG conservando la guía temporal
-    this.svgEl.querySelectorAll("path:not(#temp-cable)").forEach(p => p.remove());
+    this.svgEl.querySelectorAll("path:not(.temp-cable)").forEach(p => p.remove());
     this.colQ.innerHTML = "";
     this.colA.innerHTML = "";
     this.connections = [];
@@ -64,38 +98,42 @@ class CableMatchingGame {
     this.timerSeconds = 0;
     this.isDragging = false;
 
-    document.getElementById("cable-attempts").textContent = "0";
-    document.getElementById("cable-matches").textContent = `0 / ${this.pairs.length}`;
-    document.getElementById("cable-timer").textContent = "00:00";
+    const attemptsEl = this.container.querySelector(".cable-attempts");
+    const matchesEl = this.container.querySelector(".cable-matches");
+    const timerEl = this.container.querySelector(".cable-timer");
+
+    if (attemptsEl) attemptsEl.textContent = "0";
+    if (matchesEl) matchesEl.textContent = `0 / ${this.pairs.length}`;
+    if (timerEl) timerEl.textContent = "00:00";
+
     this.modalEl.classList.remove("active");
 
     clearInterval(this.timerInterval);
     this.startTimer();
 
-    // ── ALEATORIZACIÓN DE AMBAS COLUMNAS ──
     const shuffledQuestions = this.shuffle([...this.pairs]);
     const shuffledAnswers = this.shuffle([...this.pairs]);
 
-    // Renderizado
     shuffledQuestions.forEach((pair) => {
       this.colQ.appendChild(this.createCard(pair.q, pair.id, "q"));
     });
 
     shuffledAnswers.forEach((pair) => {
-      this.colA.appendChild(this.createCard(pair.a, pair.id, "a"));
+      this.colA.appendChild(this.createCard(pair.a, pair.id, "a", pair.ai));
     });
   }
 
-  createCard(text, pairId, type) {
+  createCard(text, pairId, type, aiTag) {
     const card = document.createElement("div");
     card.className = "cable-card";
     card.dataset.id = pairId;
     card.dataset.type = type;
-    card.innerHTML = `<span>${text}</span><div class="port-dot"></div>`;
+
+    const pillHtml = (type === "a" && aiTag) ? `<span class="ai-pill">${aiTag}</span>` : "";
+    card.innerHTML = `${pillHtml}<span>${text}</span><div class="port-dot"></div>`;
 
     const dot = card.querySelector(".port-dot");
 
-    // Escuchador de eventos del puntero en las tarjetas de preguntas
     if (type === "q") {
       card.addEventListener("pointerdown", (e) => this.onPointerDownQuestion(e, card, dot));
     } else {
@@ -105,7 +143,6 @@ class CableMatchingGame {
     return card;
   }
 
-  // ── MANEJO EN PREGUNTAS (INICIO DRAG O PRE-SELECCIÓN CLIC) ──
   onPointerDownQuestion(e, card, dot) {
     if (card.classList.contains("matched")) return;
 
@@ -116,28 +153,24 @@ class CableMatchingGame {
     this.activeDragQuestionCard = card;
     this.activeDragDot = dot;
 
-    // Iniciar trazo temporal
     const startPos = this.getDotCenter(dot);
     this.updateBezierPath(this.tempCable, startPos.x, startPos.y, startPos.x, startPos.y);
   }
 
-  // ── MANEJO EN RESPUESTAS (POR CLIC DIRECTO) ──
   onPointerDownAnswer(e, answerCard) {
     if (answerCard.classList.contains("matched")) return;
 
-    // Si ya había una pregunta seleccionada por Clic
     if (this.selectedQCard && !this.isDragging) {
       this.attemptConnection(this.selectedQCard, answerCard);
     }
   }
 
-  // ── ARRASTRE ACTIVO (MOVE) ──
   onPointerMove(e) {
     if (!this.isDragging || !this.activeDragDot) return;
 
     const dist = Math.hypot(e.clientX - this.pointerStartX, e.clientY - this.pointerStartY);
     if (dist > 6) {
-      this.hasMovedDistance = true; // Se confirma que es un Arrastre (Drag) y no un Clic
+      this.hasMovedDistance = true;
       this.tempCable.style.display = "block";
     }
 
@@ -152,28 +185,25 @@ class CableMatchingGame {
     }
   }
 
-  // ── SOLTAR O FINALIZAR CLIC (UP) ──
   onPointerUp(e) {
     if (!this.isDragging) return;
 
     this.tempCable.style.display = "none";
 
     if (!this.hasMovedDistance) {
-      // ── FUE UN CLIC SIMPLE ──
       if (this.selectedQCard) {
         this.selectedQCard.classList.remove("selected");
       }
       
       if (this.selectedQCard === this.activeDragQuestionCard) {
-        this.selectedQCard = null; // Deseleccionar si vuelve a tocar la misma
+        this.selectedQCard = null;
       } else {
         this.selectedQCard = this.activeDragQuestionCard;
         this.selectedQCard.classList.add("selected");
       }
     } else {
-      // ── FUE UN DRAG & DROP ──
       const dropTarget = document.elementFromPoint(e.clientX, e.clientY);
-      const answerCard = dropTarget ? dropTarget.closest('#col-answers .cable-card') : null;
+      const answerCard = dropTarget ? dropTarget.closest('.col-answers .cable-card') : null;
 
       if (answerCard && !answerCard.classList.contains("matched")) {
         this.attemptConnection(this.activeDragQuestionCard, answerCard);
@@ -185,10 +215,10 @@ class CableMatchingGame {
     this.activeDragQuestionCard = null;
   }
 
-  // ── LÓGICA DE CONEXIÓN Y VERIFICACIÓN ──
   attemptConnection(qCard, aCard) {
     this.attempts++;
-    document.getElementById("cable-attempts").textContent = this.attempts;
+    const attemptsEl = this.container.querySelector(".cable-attempts");
+    if (attemptsEl) attemptsEl.textContent = this.attempts;
 
     const qId = parseInt(qCard.dataset.id);
     const aId = parseInt(aCard.dataset.id);
@@ -197,7 +227,6 @@ class CableMatchingGame {
     const aDot = aCard.querySelector(".port-dot");
 
     if (qId === aId) {
-      // ── CORRECTO ──
       qCard.classList.remove("selected");
       qCard.classList.add("matched");
       aCard.classList.add("matched");
@@ -211,14 +240,14 @@ class CableMatchingGame {
       });
 
       this.matches++;
-      document.getElementById("cable-matches").textContent = `${this.matches} / ${this.pairs.length}`;
+      const matchesEl = this.container.querySelector(".cable-matches");
+      if (matchesEl) matchesEl.textContent = `${this.matches} / ${this.pairs.length}`;
       this.selectedQCard = null;
 
       if (this.matches === this.pairs.length) {
         this.endGame();
       }
     } else {
-      // ── INCORRECTO ──
       const errorPath = this.drawPermanentCable(qDot, aDot, "#ef4444");
 
       if (this.selectedQCard) {
@@ -232,7 +261,6 @@ class CableMatchingGame {
     }
   }
 
-  // ── AUXILIARES DIBUJO BEZIER ──
   getDotCenter(dotEl) {
     const boardRect = this.boardEl.getBoundingClientRect();
     const dotRect = dotEl.getBoundingClientRect();
@@ -290,7 +318,8 @@ class CableMatchingGame {
       this.timerSeconds++;
       const m = String(Math.floor(this.timerSeconds / 60)).padStart(2, "0");
       const s = String(this.timerSeconds % 60).padStart(2, "0");
-      document.getElementById("cable-timer").textContent = `${m}:${s}`;
+      const timerEl = this.container.querySelector(".cable-timer");
+      if (timerEl) timerEl.textContent = `${m}:${s}`;
     }, 1000);
   }
 
@@ -300,25 +329,60 @@ class CableMatchingGame {
     const total = this.pairs.length;
     const accuracy = Math.round((total / this.attempts) * 100);
     const extraAttempts = Math.max(0, this.attempts - total);
-    
     const score = Math.max(100, 1000 - (extraAttempts * 50) - (this.timerSeconds * 2));
 
     const m = String(Math.floor(this.timerSeconds / 60)).padStart(2, "0");
     const s = String(this.timerSeconds % 60).padStart(2, "0");
+    const timeFormatted = `${m}:${s}`;
 
-    document.getElementById("final-score").textContent = `${score} PTS`;
-    document.getElementById("final-accuracy").textContent = `${accuracy}%`;
-    document.getElementById("final-time").textContent = `${m}:${s}`;
-    document.getElementById("final-attempts").textContent = this.attempts;
+    const scoreEl = this.container.querySelector(".final-score");
+    const accuracyEl = this.container.querySelector(".final-accuracy");
+    const timeEl = this.container.querySelector(".final-time");
+    const attemptsEl = this.container.querySelector(".final-attempts");
+
+    if (scoreEl) scoreEl.textContent = `${score} PTS`;
+    if (accuracyEl) accuracyEl.textContent = `${accuracy}%`;
+    if (timeEl) timeEl.textContent = timeFormatted;
+    if (attemptsEl) attemptsEl.textContent = this.attempts;
 
     setTimeout(() => this.modalEl.classList.add("active"), 400);
+
+    this.sendToGoogleSheets({
+      episodio: this.episodeId,
+      nombre: this.userData.nombre,
+      pais: this.userData.pais,
+      correo: this.userData.correo,
+      puntaje: score,
+      precision: `${accuracy}%`,
+      tiempo: timeFormatted,
+      intentos: this.attempts,
+      fecha: new Date().toLocaleString()
+    });
+  }
+
+  sendToGoogleSheets(payload) {
+    const statusText = this.container.querySelector(".sheets-status-text");
+
+    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("TU_URL")) {
+      if (statusText) statusText.textContent = "¡Juego completado con éxito!";
+      return;
+    }
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      if (statusText) statusText.textContent = "¡Resultados guardados correctamente!";
+    })
+    .catch(() => {
+      if (statusText) statusText.textContent = "¡Juego completado!";
+    });
   }
 
   restartGame() {
     this.startGame();
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  new CableMatchingGame(CABLE_PAIRS);
-});

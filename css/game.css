@@ -1,22 +1,112 @@
-/* ── PALETA Y CONFIGURACIÓN BASE SINERG.IA ── */
+/* ── PALETA Y BASE SINERG.IA ── */
 :root {
   --sn-purple-main: #9333ea;
   --sn-purple-light: #c084fc;
   --sn-purple-dark: #581c87;
   --sn-bg-dark: #0d0b18;
-  --sn-card-bg: #ffffff; /* Fondo blanco */
-  --sn-text-black: #0f172a; /* Texto negro de alto contraste */
+  --sn-card-bg: #ffffff;
+  --sn-text-black: #0f172a;
   --sn-wire-correct: #22c55e;
   --sn-wire-error: #ef4444;
 }
 
 .cable-game-wrapper {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
   padding: 16px 12px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #f8fafc;
+  color: var(--sn-purple-main);
   box-sizing: border-box;
+}
+
+/* ── PANTALLA DE REGISTRO ── */
+.cable-screen {
+  width: 100%;
+}
+
+.cable-reg-card {
+  border-radius: 20px;
+  padding: 28px 20px;
+  max-width: 440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reg-icon {
+  font-size: 2.5rem;
+  margin-bottom: 6px;
+}
+
+.reg-subtitle {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin-bottom: 22px;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.optional {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: normal;
+}
+
+/* Campos de entrada con texto negro para máxima legibilidad */
+.input-field {
+  background-color: #00000009;
+  color: #0f172a !important;
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #cbd5e1;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--sn-purple-main);
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+}
+
+.btn-start-game {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--sn-purple-main), var(--sn-purple-dark));
+  border: 1px solid var(--sn-purple-light);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-start-game:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
 }
 
 /* ── CABECERA Y ESTADÍSTICAS ── */
@@ -24,18 +114,17 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
 .stat-badge {
-  background: rgba(147, 51, 234, 0.2);
+  background: rgba(147, 51, 234, 0.12);
   border: 1px solid rgba(192, 132, 252, 0.35);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.85rem;
   backdrop-filter: blur(8px);
-  color: #0d0b18;
 }
 
 .stat-badge strong {
@@ -44,7 +133,7 @@
 
 .cable-instructions {
   text-align: center;
-  color: var(--sn-bg-dark);
+  color: var(--sn-purple-main);
   font-size: 0.88rem;
   line-height: 1.4;
   margin-bottom: 24px;
@@ -56,9 +145,12 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 110px; /* Separación amplia en escritorio */
-  padding: 10px 5px;
-  touch-action: none; /* Evita scroll no deseado al arrastrar en móviles */
+  /* Reducimos el gap central a 70px para dar más ancho a las tarjetas */
+  gap: 70px; 
+  /* Agregamos padding lateral (30px) para que las bolitas tengan margen de respiración */
+  padding: 15px 30px; 
+  touch-action: none;
+  overflow: visible;
 }
 
 .cable-svg-layer {
@@ -75,28 +167,34 @@
 .cable-column {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 18px; /* Espacio vertical uniforme entre tarjetas */
   z-index: 3;
 }
 
-/* Tarjeta con letras NEGRAS sobre fondo blanco */
 .cable-card {
   background-color: var(--sn-card-bg);
   color: var(--sn-text-black) !important;
   font-weight: 600;
   font-size: 0.92rem;
   line-height: 1.35;
-  padding: 14px 16px;
+  padding: 14px 18px; /* Relleno base estandard */
+  min-height: 52px; /* Mantiene una altura proporcional en todas las tarjetas */
   border-radius: 12px;
   border: 2px solid #cbd5e1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   user-select: none;
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+  box-sizing: border-box;
+}
+
+/* Si la tarjeta tiene un pill de IA (Respuestas), añade espacio arriba para no pisar el texto */
+.cable-card:has(.ai-pill) {
+  padding-top: 24px;
 }
 
 .cable-card:hover:not(.matched) {
@@ -104,14 +202,12 @@
   transform: translateY(-2px);
 }
 
-/* Estado seleccionado por Clic */
 .cable-card.selected {
   border-color: var(--sn-purple-main);
-  background-color: #f3e8ff; /* Violeta muy suave de fondo */
-  box-shadow: 0 0 12px rgba(147, 51, 234, 0.4);
+  background-color: #f3e8ff;
+  box-shadow: 0 0 12px rgba(147, 51, 234, 0.3);
 }
 
-/* Estado acertado */
 .cable-card.matched {
   border-color: var(--sn-wire-correct);
   background-color: #f0fdf4;
@@ -125,7 +221,7 @@
   border-radius: 50%;
   background: var(--sn-purple-main);
   border: 3px solid #ffffff;
-  box-shadow: 0 0 6px rgba(147, 51, 234, 0.6);
+  box-shadow: 0 0 6px rgba(147, 51, 234, 0.5);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -133,12 +229,14 @@
   transition: transform 0.2s ease;
 }
 
-#col-questions .port-dot {
-  right: -24px;
+#col-questions .port-dot,
+.col-questions .port-dot { 
+  right: -24px; 
 }
 
-#col-answers .port-dot {
-  left: -24px;
+#col-answers .port-dot,
+.col-answers .port-dot { 
+  left: -24px; 
 }
 
 .cable-card.selected .port-dot {
@@ -150,6 +248,30 @@
 .cable-card.matched .port-dot {
   background: var(--sn-wire-correct);
   box-shadow: 0 0 8px var(--sn-wire-correct);
+}
+
+/* ── PILL / BADGE DE IA EN LAS RESPUESTAS ── */
+.ai-pill {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: rgba(147, 51, 234, 0.12);
+  color: var(--sn-purple-main);
+  border: 1px solid rgba(147, 51, 234, 0.25);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.cable-card.matched .ai-pill {
+  background: rgba(34, 197, 94, 0.15);
+  color: #15803d;
+  border-color: rgba(34, 197, 94, 0.3);
 }
 
 /* ── MODAL RESULTADOS ── */
@@ -174,7 +296,7 @@
 }
 
 .cable-modal-card {
-  background: #f1f1f1;
+  background: #18132e;
   border: 1px solid var(--sn-purple-light);
   border-radius: 20px;
   padding: 24px 20px;
@@ -192,9 +314,6 @@
   margin: 18px 0;
 }
 
-h2,p{
-    color: #0d0b18;
-}
 .score-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -203,24 +322,24 @@ h2,p{
   display: flex;
   flex-direction: column;
   font-size: 0.78rem;
-  color: #0d0b18;
+  color: #94a3b8;
 }
 
 .score-box strong {
   font-size: 1.1rem;
-  color: #9333ea;
+  color: #fff;
   margin-top: 2px;
 }
 
-.purple-text { color: var(--sn-purple-main) !important; }
+.purple-text { color: var(--sn-purple-light) !important; }
 
 .btn-restart {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: none;
-  background: linear-gradient(135deg, var(--sn-purple-light), var(--sn-purple-dark));
-  color: #f1f1f1;
+  background: linear-gradient(135deg, var(--sn-purple-main), var(--sn-purple-dark));
+  color: #fff;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -228,38 +347,140 @@ h2,p{
 
 /* ── RESPONSIVE PARA CELULARES Y PANTALLAS PEQUEÑAS ── */
 @media (max-width: 650px) {
-  .cable-board {
-    gap: 45px; /* Reducción de separación para que encaje perfectamente */
+  .cable-board { 
+    gap: 40px; 
+    padding: 10px 18px; 
   }
-
-  .cable-card {
-    font-size: 0.8rem;
-    padding: 10px 8px;
-    border-radius: 10px;
+  .cable-card { 
+    font-size: 0.8rem; 
+    padding: 10px 10px; 
+    border-radius: 10px; 
   }
-
-  .port-dot {
-    width: 14px;
-    height: 14px;
-    border-width: 2px;
+  .cable-card:has(.ai-pill) {
+    padding-top: 20px;
   }
-
-  #col-questions .port-dot {
-    right: -16px;
+  .port-dot { 
+    width: 14px; 
+    height: 14px; 
+    border-width: 2px; 
   }
-
-  #col-answers .port-dot {
-    left: -16px;
-  }
+  #col-questions .port-dot, .col-questions .port-dot { right: -16px; }
+  #col-answers .port-dot, .col-answers .port-dot { left: -16px; }
 }
 
 @media (max-width: 380px) {
-  .cable-board {
-    gap: 35px;
-  }
+  .cable-board { gap: 30px; padding: 10px 14px; }
+  .cable-card { font-size: 0.75rem; padding: 8px 6px; }
+}
 
-  .cable-card {
-    font-size: 0.75rem;
-    padding: 8px 6px;
+/* AJUSTES DE CENTRADO */
+
+/* ── CENTRADO GENERAL Y ANCHO CONTENEDOR ── */
+.cable-game-wrapper {
+  max-width: 950px; /* Incrementado para dar más amplitud total */
+  margin: 0 auto;
+  padding: 16px 12px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--sn-purple-main);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cable-screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── TABLERO CON MAYOR SEPARACIÓN CENTRAL (CABLE MÁS LARGO) ── */
+.cable-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  /* 🔑 CLAVE: Subimos el gap a 150px en escritorio para que el cable se estire bastante */
+  gap: 150px; 
+  
+  padding: 15px 30px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  touch-action: none;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* ── COLUMNAS ── */
+.cable-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  z-index: 3;
+}
+
+/* ── TARJETAS CON ALTURA HOMOGÉNEA Y LETRA NEGRA ── */
+.cable-card {
+  background-color: var(--sn-card-bg);
+  color: var(--sn-text-black) !important;
+  font-weight: 600;
+  font-size: 0.90rem;
+  line-height: 1.35;
+  padding: 14px 16px;
+  
+  /* Mantiene las tarjetas alineadas sin el efecto escalera */
+  min-height: 75px; 
+  
+  border-radius: 12px;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+  box-sizing: border-box;
+}
+
+.cable-card:has(.ai-pill) {
+  padding-top: 22px;
+}
+
+/* ── RESPONSIVE PARA CELULARES (Ajuste progresivo) ── */
+@media (max-width: 768px) {
+  .cable-board {
+    gap: 80px; /* Reducción moderada para tablets/móviles grandes */
+    padding: 12px 20px;
   }
+}
+
+@media (max-width: 650px) {
+  .cable-board { 
+    gap: 55px; /* Espacio cómodo en pantallas de celular */
+    padding: 10px 18px; 
+  }
+  .cable-card { 
+    font-size: 0.80rem; 
+    padding: 10px 10px; 
+    min-height: 70px;
+    border-radius: 10px; 
+  }
+  .port-dot { 
+    width: 14px; 
+    height: 14px; 
+    border-width: 2px; 
+  }
+  #col-questions .port-dot, .col-questions .port-dot { right: -16px; }
+  #col-answers .port-dot, .col-answers .port-dot { left: -16px; }
+}
+
+@media (max-width: 380px) {
+  .cable-board { gap: 38px; padding: 10px 14px; }
+  .cable-card { font-size: 0.75rem; padding: 8px 6px; min-height: 65px; }
 }
