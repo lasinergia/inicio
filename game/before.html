@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades — SINERG.ia</title>
+  <meta name="description"
+    content="Las actividades prácticas de cada episodio de SINERG.ia: prompts, ejercicios y retos para llevar la IA a tu día a día.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/actividades.css">
+  <link rel="stylesheet" href="/css/assets.css">
+  <link rel="stylesheet" href="/css/game.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="https://lasinergia.com.co/" class="logo">✦ Sinerg<em>.ia</em></a>
+    <div class="navlinks">
+      <a href="https://lasinergia.com.co/" class="back">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Actividades</span>
+    <h1>No te quedes solo con la teoría.</h1>
+    <p>Cada episodio termina con algo para hacer, no solo para escuchar. Entra a la temporada, abre el episodio y
+      encuentra ahí el ejercicio o el prompt listo para copiar.</p>
+  </section>
+
+  <main>
+    <div class="season-grid">
+
+      <!-- ============ TEMPORADA 1 ============ -->
+      <div class="season">
+        <div class="season-head">
+          <h2 class="season-title">Temporada 1</h2>
+          <span class="season-sub">3 episodios</span>
+        </div>
+
+        <ul class="episode-list">
+
+          <!-- Episodio 1 -->
+          <li class="episode-item">
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <span>
+                <span class="ep-num">Episodio 1</span>
+                <span class="ep-name">Cómo llegamos a hablar de IA</span>
+              </span>
+              <span class="chev">⌄</span>
+            </button>
+            <div class="episode-body">
+              <div class="episode-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <ol class="step-list">
+                  <li>Abre tu modelo de lenguaje favorito: <strong>ChatGPT</strong> o
+                    <strong>Gemini</strong>.
+                  </li>
+                  <li>Copia el prompt de abajo y pégalo en una conversación nueva.</li>
+                  <li>Reemplaza <strong>[lista]</strong> con tus tareas reales de hoy o de la semana.</li>
+                  <li>Lee la respuesta y quédate con el orden que te propone: empieza por ahí.</li>
+                </ol>
+
+                <div class="tool-row">
+                  <!-- ESCONDIDO
+                  <a class="tool-chip" href="https://claude.ai/" target="_blank" rel="noopener">
+                    <span>
+                      <img src="/assets/icons/claude.png" alt="Claude-icon">
+                    </span>
+                    Claude
+                  </a>
+                  ESCONDIDO -->
+
+                  <a class="tool-chip" href="https://chatgpt.com/" target="_blank" rel="noopener">
+                    <span>
+                      <img src="/assets/icons/chatgpt.png" alt="ChatGPT-icon">
+                    </span>
+                    ChatGPT
+                  </a>
+
+                  <a class="tool-chip" href="https://gemini.google.com/" target="_blank" rel="noopener">
+                    <span>
+                      <img src="/assets/icons/gemini.png" alt="Gemini-icon">
+                    </span>
+                    Gemini
+                  </a>
+                </div>
+
+                <div class="prompt-box">
+                  <span id="prompt1">Actúa como un asistente que me ayuda a organizar mi día.<br>Estas son mis tareas:
+                    <span class="ph">[lista]</span>.<br>Ayúdame a ordenarlas, priorizarlas y simplificarlas.</span>
+                  <button class="copy-btn" onclick="copyPrompt('prompt1', this)">Copiar prompt</button>
+                </div>
+
+                <p class="hint"><b>Tip:</b> entre más concreta sea tu lista (con tiempos, fechas o lugares), más útil va
+                  a ser la respuesta.</p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Episodio 2 (placeholder) -->
+          <li class="episode-item">
+            <a href="/quiz/">
+              <button class="episode-toggle">
+                <span>
+                  <span class="ep-num">Episodio 2</span>
+                  <span class="ep-name">¿la IA piensa? Inteligencia artificial vs. inteligencia humana</span>
+                </span>
+                <span class="chev">></span>
+              </button>
+              <div class="episode-body">
+                <div class="placeholder-text">La actividad se publica junto con el episodio. Próximamente ✦</div>
+              </div>
+            </a>
+          </li>
+
+          <!-- Episodio 3 (placeholder) -->
+          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
+            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <div class="ep-header-info">
+                <div class="ep-title-row">
+                  <span class="ep-num">Episodio 3</span>
+                </div>
+                <div>
+                  <span class="ep-name">¿Cuál es tu modelo? Los grandes modelos de lenguaje y cómo encontrar el
+                    tuyo</span>
+                </div>
+                <div class="release-subtitle">
+                  Se desbloquea el <span class="release-date-text">...</span>
+                </div>
+              </div>
+              <span class="chev badge-status">...</span>
+            </button>
+
+            <div class="episode-body">
+              <div class="episode-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <ol class="step-list">
+                  <li>Abre tu modelo de lenguaje favorito:
+                    <strong>ChatGPT</strong>,
+                    <strong>Gemini</strong>,
+                    <strong>Gemini Notebook</strong>,
+                    <strong>Claude</strong> o
+                    <strong>Grok</strong>
+                  </li>
+                  <li>Copia el prompt de abajo y pégalo en una conversación nueva.</li>
+                  <li>Reemplaza <strong>[escribe aquí tu profesión u oficio]</strong> con tu profesión u oficio que
+                    estás realizando actualmente.</li>
+                  <li>Lee la respuesta y quédate con el orden que te propone: empieza por ahí.</li>
+                </ol>
+
+                <div class="tool-row">
+                  <a class="tool-chip" href="https://chatgpt.com" target="_blank" rel="noopener">
+                    <span><img src="/assets/icons/chatgpt.png" alt="ChatGPT-icon"></span> ChatGPT
+                  </a>
+                  <a class="tool-chip" href="https://gemini.google.com" target="_blank" rel="noopener">
+                    <span><img src="/assets/icons/gemini.png" alt="Gemini-icon"></span> Gemini
+                  </a>
+                  <a class="tool-chip" href="https://notebooklm.google/?hl=es" target="_blank" rel="noopener">
+                    <span><img src="/assets/icons/geminiNotebook.png" alt="GeminiNotebook-icon"></span> Gemini Notebook
+                  </a>
+                  <a class="tool-chip" href="https://claude.ai" target="_blank" rel="noopener">
+                    <span><img src="/assets/icons/claude.png" alt="Claude-icon"></span> Claude
+                  </a>
+                  <a class="tool-chip" href="https://grok.com" target="_blank" rel="noopener">
+                    <span><img src="/assets/icons/grok.webp" alt="Grok-icon"></span> Grok
+                  </a>
+                </div>
+
+                <div class="prompt-box">
+                  <span id="prompt2">Me dedico a
+                    <span class="ph">[escribe aquí tu profesión u oficio]</span>.
+                    <p>Quiero entender cómo funcionas y cómo puedo utilizarte de manera responsable, especialmente en
+                      situaciones relacionadas con mi trabajo.</p>
+
+                    <p>Respóndeme con palabras simples, párrafos cortos y ejemplos cotidianos aplicados, cuando sea
+                      posible, a mi profesión. Evita los tecnicismos y desarrolla un máximo de tres ideas por cada
+                      pregunta.</p>
+
+                    <ol>
+                      <div>
+                        <li>
+                          <p>¿Qué eres exactamente y qué no eres?</p>
+                        </li>
+                        <li>
+                          <p>¿Cuáles son tus principales limitaciones y por qué puedes equivocarte, confundir
+                            información o inventar datos?</p>
+                        </li>
+                        <li>
+                          <p>¿Qué aspectos importantes debería revisar en los términos de uso y en la política de
+                            privacidad de esta herramienta antes de utilizarla en mi trabajo?</p>
+                        </li>
+                      </div>
+                    </ol>
+                    <p>
+                      Organiza toda la respuesta de forma clara y fácil de entender.<br><br>
+                      Al final, resume lo más importante en cinco ideas clave que cualquier persona debería recordar
+                      antes de utilizar una inteligencia artificial.
+                    </p>
+                  </span>
+                  <button class="copy-btn" onclick="copyPrompt('prompt2', this)">Copiar prompt</button>
+                </div>
+
+                <p class="hint"><b>Tip:</b> prueba el mismo prompt en varias IA y descubre cuál se adapta mejor a tus
+                  necesidades.</p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Episodio T1E4-->
+          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
+            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <div class="ep-header-info">
+                <div class="ep-title-row">
+                  <span class="ep-num">Episodio 4</span>
+                </div>
+                <div>
+                  <span class="ep-name">Minijuego Sinerg.ia Episodio 4</span>
+                </div>
+                <div class="release-subtitle">
+                  Se desbloquea el <span class="release-date-text">...</span>
+                </div>
+              </div>
+              <span class="chev badge-status">...</span>
+            </button>
+
+            <div class="episode-body">
+              <div class="episode-inner game-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <ol class="step-list">
+                  <li><strong>Ingresa tus datos:</strong> Rellena el formulario con tu
+                    <strong>Nombre</strong> y <strong>País</strong>, El <strong>Correo</strong> es opcional y haz clic
+                    en "<strong>🚀 Comenzar a jugar</strong>".
+                  </li>
+                  <li><strong>Conecta las parejas:</strong> Arrastra la bolita desde el conector o haz clic en la
+                    pregunta y luego en la respuesta correspondiente de la columna derecha para tirar el cable.</li>
+                  <li><strong>Completa el tablero:</strong> Une todos los terminales lo más rápido posible y fallando lo
+                    menos posible para maximizar tu puntaje.</li>
+                  <li><strong>Revisa tu resultado:</strong> Al terminar, verás tu puntaje final, precisión y tiempo
+                    transcurrido, los cuales se registrarán automáticamente.</li>
+                </ol>
+
+                <div class="episode-game-wrapper" id="game-container-e4">
+
+                  <div class="cable-screen reg-screen">
+                    <div class="cable-reg-card">
+                      <div class="reg-icon">✨</div>
+                      <h2>¡Bienvenido al Desafío T1E4!</h2>
+                      <p class="reg-subtitle">Ingresa tus datos antes de conectar los cables en SINERG.ia</p>
+
+                      <form class="reg-form">
+                        <div class="input-group">
+                          <label>Nombre / Apodo <span class="required">*</span></label>
+                          <input type="text" class="user-name input-field" placeholder="Ej: Yani" required>
+                        </div>
+                        <div class="input-group">
+                          <label>País <span class="required">*</span></label>
+                          <input type="text" class="user-country input-field" placeholder="Ej: Colombia" required>
+                        </div>
+                        <div class="input-group">
+                          <label>Correo Electrónico <span class="optional">(Opcional)</span></label>
+                          <input type="email" class="user-email input-field" placeholder="tu@email.com">
+                        </div>
+                        <button type="submit" class="btn-start-game">🚀 Comenzar a jugar</button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="cable-screen game-screen" style="display: none;">
+                    <div class="cable-header">
+                      <div class="stat-badge">👤 <span class="player-display">---</span></div>
+                      <div class="stat-badge">⏱️ <span class="cable-timer">00:00</span></div>
+                      <div class="stat-badge">🎯 Intentos: <strong class="cable-attempts">0</strong></div>
+                      <div class="stat-badge">🔌 Conexiones: <strong class="cable-matches">0 / 0</strong></div>
+                    </div>
+
+                    <p class="cable-instructions">
+                      ✨ <strong>Arrastra la bolita</strong> o haz <strong>clic en una pregunta y luego en su
+                        respuesta</strong> para conectarlas.
+                    </p>
+
+                    <div class="cable-board">
+                      <svg class="cable-svg-layer">
+                        <path class="temp-cable" fill="none" stroke="#c084fc" stroke-width="4" stroke-dasharray="6,6"
+                          style="display:none;"></path>
+                      </svg>
+                      <div class="cable-column col-questions"></div>
+                      <div class="cable-column col-answers"></div>
+                    </div>
+                  </div>
+
+                  <div class="cable-modal-overlay">
+                    <div class="cable-modal-card">
+                      <div class="modal-icon">🎉</div>
+                      <h2>¡Conexiones Completadas!</h2>
+                      <p class="sheets-status-text">Guardando tus resultados...</p>
+
+                      <div class="modal-score-grid">
+                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score" style="color: #9333ea">0
+                            PTS</strong></div>
+                        <div class="score-box"><span>Precisión</span><strong class="final-accuracy">0%</strong></div>
+                        <div class="score-box"><span>Tiempo</span><strong class="final-time">00:00</strong></div>
+                        <div class="score-box"><span>Intentos</span><strong class="final-attempts">0</strong></div>
+                      </div>
+
+                      <button class="btn-restart">🔄 Jugar de nuevo</button>
+                    </div>
+                  </div>
+
+                </div>
+          </li>
+
+          <!-- Episodio T1E5-->
+          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
+            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <div class="ep-header-info">
+                <div class="ep-title-row">
+                  <span class="ep-num">Episodio 5</span>
+                </div>
+                <div>
+                  <span class="ep-name">Minijuego Sinerg.ia Episodio 5</span>
+                </div>
+                <div class="release-subtitle">
+                  Se desbloquea el <span class="release-date-text">...</span>
+                </div>
+              </div>
+              <span class="chev badge-status">...</span>
+            </button>
+
+            <div class="episode-body">
+              <div class="episode-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <ol class="step-list">
+                  <li><strong>Ingresa tus datos:</strong> Rellena el formulario con tu
+                    <strong>Nombre</strong> y <strong>País</strong>, El <strong>Correo</strong> es opcional y haz clic
+                    en "<strong>🚀 Comenzar a jugar</strong>".
+                  </li>
+                  <li><strong>Conecta las parejas:</strong> Arrastra la bolita desde el conector o haz clic en la
+                    pregunta y luego en la respuesta correspondiente de la columna derecha para tirar el cable.</li>
+                  <li><strong>Completa el tablero:</strong> Une todos los terminales lo más rápido posible y fallando lo
+                    menos posible para maximizar tu puntaje.</li>
+                  <li><strong>Revisa tu resultado:</strong> Al terminar, verás tu puntaje final, precisión y tiempo
+                    transcurrido, los cuales se registrarán automáticamente.</li>
+                </ol>
+
+                <div class="episode-game-wrapper" id="game-container-e5">
+
+                  <div class="cable-screen reg-screen">
+                    <div class="cable-reg-card">
+                      <div class="reg-icon">✨</div>
+                      <h2>¡Bienvenido al Desafío T1E5!</h2>
+                      <p class="reg-subtitle">Ingresa tus datos antes de conectar los cables en SINERG.ia</p>
+
+                      <form class="reg-form">
+                        <div class="input-group">
+                          <label>Nombre / Apodo <span class="required">*</span></label>
+                          <input type="text" class="user-name input-field" placeholder="Ej: Mari" required>
+                        </div>
+                        <div class="input-group">
+                          <label>País <span class="required">*</span></label>
+                          <input type="text" class="user-country input-field" placeholder="Ej: Argentina" required>
+                        </div>
+                        <div class="input-group">
+                          <label>Correo Electrónico <span class="optional">(Opcional)</span></label>
+                          <input type="email" class="user-email input-field" placeholder="tu@email.com">
+                        </div>
+                        <button type="submit" class="btn-start-game">🚀 Comenzar a jugar</button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="cable-screen game-screen" style="display: none;">
+                    <div class="cable-header">
+                      <div class="stat-badge">👤 <span class="player-display">---</span></div>
+                      <div class="stat-badge">⏱️ <span class="cable-timer">00:00</span></div>
+                      <div class="stat-badge">🎯 Intentos: <strong class="cable-attempts">0</strong></div>
+                      <div class="stat-badge">🔌 Conexiones: <strong class="cable-matches">0 / 0</strong></div>
+                    </div>
+
+                    <p class="cable-instructions">
+                      ✨ <strong>Arrastra la bolita</strong> o haz <strong>clic en una pregunta y luego en su
+                        respuesta</strong> para conectarlas.
+                    </p>
+
+                    <div class="cable-board">
+                      <svg class="cable-svg-layer">
+                        <path class="temp-cable" fill="none" stroke="#c084fc" stroke-width="4" stroke-dasharray="6,6"
+                          style="display:none;"></path>
+                      </svg>
+                      <div class="cable-column col-questions"></div>
+                      <div class="cable-column col-answers"></div>
+                    </div>
+                  </div>
+
+                  <div class="cable-modal-overlay">
+                    <div class="cable-modal-card">
+                      <div class="modal-icon">🎉</div>
+                      <h2>¡Conexiones Completadas!</h2>
+                      <p class="sheets-status-text">Guardando tus resultados...</p>
+
+                      <div class="modal-score-grid">
+                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score" style="color: #9333ea">0
+                            PTS</strong></div>
+                        <div class="score-box"><span>Precisión</span><strong class="final-accuracy">0%</strong></div>
+                        <div class="score-box"><span>Tiempo</span><strong class="final-time">00:00</strong></div>
+                        <div class="score-box"><span>Intentos</span><strong class="final-attempts">0</strong></div>
+                      </div>
+
+                      <button class="btn-restart">🔄 Jugar de nuevo</button>
+                    </div>
+                  </div>
+
+                </div>
+          </li>
+          <!-- ========== fin Temporada 1 ========== -->
+
+          <!--
+      Para una Temporada 2, se duplica todo el bloque <div class="season"> ... </div>
+      de arriba, se cambia el título y se agrega sus <li class="episode-item"> con
+      la misma estructura que el Episodio 1 :D
+    -->
+
+      </div>
+  </main>
+
+  <footer>
+    <span class="logo">✦ Sinerg.ia</span>
+    Un espacio para pensar la IA con calma, sin mitos y sin miedo.
+  </footer>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/game.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Inicialización Episodio 4
+      new CableMatchingGame({
+        containerId: "game-container-e4",
+        episodeId: "T1E4",
+        pairs: [
+          { id: 1, q: "Bajar el tono con un cliente furioso", a: "Calidez conversacional", ai: "ChatGPT" },
+          { id: 2, q: "Propuesta de patrocinio en Slides, Drive y Sheets", a: "Integrado a Google Workspace", ai: "Gemini" },
+          { id: 3, q: "Dato de tarifas actualizado de un proveedor", a: "Conectado a búsqueda actual", ai: "Gemini" },
+          { id: 4, q: "Editar el cielo de una foto", a: "Genera imágenes con calidad", ai: "ChatGPT" }
+        ]
+      });
+
+      // Inicialización Episodio 5
+      new CableMatchingGame({
+        containerId: "game-container-e5",
+        episodeId: "T1E5",
+        pairs: [
+          { id: 1, q: "Expediente judicial con pruebas y doctrina", a: "Ancla la respuesta en tus fuentes", ai: "Gemini Notebook" },
+          { id: 2, q: "Estrategia y diseño de página web personal", a: "Piensa la idea desde cero", ai: "Claude" },
+          { id: 3, q: "Biblioteca personal con múltiples fuentes", a: "Conecta y organiza documentos", ai: "Gemini Notebook" },
+          { id: 4, q: "Profundizar un proyecto creativo y complejo", a: "Acompaña con visión propia", ai: "Claude" }
+        ]
+      });
+    });
+  </script>
+
+</body>
+
+</html>

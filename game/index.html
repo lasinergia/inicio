@@ -1,479 +1,470 @@
-<!DOCTYPE html>
-<html lang="es">
+<!--
+  ============================================================
+  SINERG.ia — Episodio 6: "¿IA o Fuente Oficial?"
+  Widget embebible. Pega este bloque completo dentro del
+  contenido del episodio 6, en el mismo lugar donde va la
+  "Actividad práctica" (igual que el juego del episodio 4).
+  Todo el CSS y el JS están encapsulados bajo .sinergia-quiz-ep6
+  y IDs con prefijo "sq6-", así que no debería chocar con los
+  estilos del resto del sitio.
+  ============================================================
+-->
+<div class="sinergia-quiz-ep6" id="sq6-root">
+  <style>
+    #sq6-root{
+      --sq6-purple: #9a89c7;
+      --sq6-purple-deep: #7c69ab;
+      --sq6-purple-text: #4c3f79;
+      --sq6-cream: #F8F4EF;
+      --sq6-gold: #E3B873;
+      --sq6-coral: #E8836B;
+      --sq6-sage: #7fa98f;
+      --sq6-text-dark: #2c2650;
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actividades — SINERG.ia</title>
-  <meta name="description"
-    content="Las actividades prácticas de cada episodio de SINERG.ia: prompts, ejercicios y retos para llevar la IA a tu día a día.">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/assets/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/css/actividades.css">
-  <link rel="stylesheet" href="/css/assets.css">
-  <link rel="stylesheet" href="/css/game.css">
-</head>
+      font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+      max-width: 640px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    #sq6-root *{ box-sizing: border-box; }
 
-<body>
+    #sq6-root .sq6-eyebrow{
+      text-align:center;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      font-size:11px;
+      color: var(--sq6-purple-deep);
+      font-weight:600;
+      margin-bottom:8px;
+    }
+    #sq6-root .sq6-title{
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-weight:600;
+      text-align:center;
+      font-size:clamp(26px, 5vw, 36px);
+      margin:0 0 8px;
+      line-height:1.1;
+      color: var(--sq6-text-dark);
+    }
+    #sq6-root .sq6-subtitle{
+      text-align:center;
+      font-size:14px;
+      color:#6b6488;
+      max-width:440px;
+      margin:0 auto 24px;
+      line-height:1.6;
+    }
 
-  <header>
-    <a href="https://lasinergia.com.co/" class="logo">✦ Sinerg<em>.ia</em></a>
-    <div class="navlinks">
-      <a href="https://lasinergia.com.co/" class="back">← Volver al inicio</a>
-    </div>
-  </header>
+    #sq6-root .sq6-progress-track{
+      height:4px;
+      background: rgba(154,137,199,0.18);
+      border-radius:99px;
+      overflow:hidden;
+      margin-bottom:8px;
+    }
+    #sq6-root .sq6-progress-fill{
+      height:100%;
+      background: linear-gradient(90deg, var(--sq6-gold), var(--sq6-coral));
+      width:12.5%;
+      transition:width .5s cubic-bezier(.65,0,.35,1);
+      border-radius:99px;
+    }
+    #sq6-root .sq6-progress-label{
+      display:flex;
+      justify-content:space-between;
+      font-size:11.5px;
+      color:#847dab;
+      margin-bottom:22px;
+    }
 
-  <section class="hero">
-    <span class="eyebrow">Actividades</span>
-    <h1>No te quedes solo con la teoría.</h1>
-    <p>Cada episodio termina con algo para hacer, no solo para escuchar. Entra a la temporada, abre el episodio y
-      encuentra ahí el ejercicio o el prompt listo para copiar.</p>
-  </section>
+    #sq6-root .sq6-card{
+      background: var(--sq6-cream);
+      color: var(--sq6-text-dark);
+      border-radius:20px;
+      padding:30px 26px;
+      box-shadow: 0 18px 44px -20px rgba(76,63,121,0.35);
+      position:relative;
+      overflow:hidden;
+      border: 1px solid rgba(154,137,199,0.18);
+    }
+    #sq6-root .sq6-card::before{
+      content:"";
+      position:absolute;
+      top:-40px; right:-40px;
+      width:130px; height:130px;
+      background: radial-gradient(circle, rgba(227,184,115,0.32), transparent 70%);
+      pointer-events:none;
+    }
 
-  <main>
-    <div class="season-grid">
+    #sq6-root .sq6-qtag{
+      display:inline-block;
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: var(--sq6-purple-deep);
+      background: rgba(154,137,199,0.12);
+      padding:5px 12px;
+      border-radius:99px;
+      margin-bottom:14px;
+    }
+    #sq6-root .sq6-scenario{
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-style:italic;
+      font-size:clamp(19px, 3.2vw, 23px);
+      line-height:1.42;
+      margin:0 0 22px;
+      color: var(--sq6-text-dark);
+    }
+    #sq6-root .sq6-options{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    #sq6-root .sq6-opt{
+      text-align:left;
+      border:1.5px solid rgba(76,63,121,0.16);
+      background:#fff;
+      border-radius:13px;
+      padding:14px 16px;
+      font-family:inherit;
+      font-size:14.5px;
+      font-weight:500;
+      color: var(--sq6-text-dark);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    #sq6-root .sq6-opt:hover:not(:disabled){
+      border-color: var(--sq6-purple);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px -10px rgba(76,63,121,0.35);
+    }
+    #sq6-root .sq6-opt:disabled{ cursor:default; }
+    #sq6-root .sq6-opt-icon{
+      width:24px; height:24px;
+      border-radius:50%;
+      border:1.5px solid rgba(76,63,121,0.25);
+      display:flex; align-items:center; justify-content:center;
+      font-size:12px;
+      flex-shrink:0;
+      transition:all .15s ease;
+    }
+    #sq6-root .sq6-opt.correct{ background: rgba(127,169,143,0.16); border-color: var(--sq6-sage); }
+    #sq6-root .sq6-opt.correct .sq6-opt-icon{ background: var(--sq6-sage); border-color: var(--sq6-sage); color:#fff; }
+    #sq6-root .sq6-opt.incorrect{ background: rgba(232,131,107,0.13); border-color: var(--sq6-coral); }
+    #sq6-root .sq6-opt.incorrect .sq6-opt-icon{ background: var(--sq6-coral); border-color: var(--sq6-coral); color:#fff; }
+    #sq6-root .sq6-opt.dim{ opacity:.5; }
 
-      <!-- ============ TEMPORADA 1 ============ -->
-      <div class="season">
-        <div class="season-head">
-          <h2 class="season-title">Temporada 1</h2>
-          <span class="season-sub">3 episodios</span>
-        </div>
+    #sq6-root .sq6-explanation{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:12px;
+      background: rgba(154,137,199,0.08);
+      border-left:3px solid var(--sq6-gold);
+      font-size:13.3px;
+      line-height:1.6;
+      color:#4a437a;
+      display:none;
+    }
+    #sq6-root .sq6-explanation.show{ display:block; animation: sq6fade .35s ease; }
+    #sq6-root .sq6-explanation strong{ color: var(--sq6-purple-deep); }
+    @keyframes sq6fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
 
-        <ul class="episode-list">
+    #sq6-root .sq6-next-wrap{ margin-top:20px; text-align:right; }
+    #sq6-root .sq6-next-btn{
+      display:none;
+      background: var(--sq6-purple);
+      color:#fff;
+      border:none;
+      border-radius:99px;
+      padding:10px 24px;
+      font-family:inherit;
+      font-size:13.5px;
+      font-weight:600;
+      cursor:pointer;
+      transition: background .15s ease, transform .15s ease;
+    }
+    #sq6-root .sq6-next-btn.show{ display:inline-flex; align-items:center; gap:6px; }
+    #sq6-root .sq6-next-btn:hover{ background: var(--sq6-purple-deep); transform: translateX(2px); }
 
-          <!-- Episodio 1 -->
-          <li class="episode-item">
-            <button class="episode-toggle" onclick="toggleEpisode(this)">
-              <span>
-                <span class="ep-num">Episodio 1</span>
-                <span class="ep-name">Cómo llegamos a hablar de IA</span>
-              </span>
-              <span class="chev">⌄</span>
-            </button>
-            <div class="episode-body">
-              <div class="episode-inner">
-                <span class="activity-label">Actividad práctica</span>
+    #sq6-root .sq6-results{ display:none; text-align:center; }
+    #sq6-root .sq6-results.show{ display:block; }
+    #sq6-root .sq6-body.hide{ display:none; }
 
-                <ol class="step-list">
-                  <li>Abre tu modelo de lenguaje favorito: <strong>ChatGPT</strong> o
-                    <strong>Gemini</strong>.
-                  </li>
-                  <li>Copia el prompt de abajo y pégalo en una conversación nueva.</li>
-                  <li>Reemplaza <strong>[lista]</strong> con tus tareas reales de hoy o de la semana.</li>
-                  <li>Lee la respuesta y quédate con el orden que te propone: empieza por ahí.</li>
-                </ol>
+    #sq6-root .sq6-score-ring{
+      width:120px; height:120px;
+      margin:4px auto 18px;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background: conic-gradient(var(--sq6-gold) calc(var(--sq6-pct)*1%), rgba(154,137,199,0.14) 0);
+      position:relative;
+    }
+    #sq6-root .sq6-score-ring::before{
+      content:"";
+      position:absolute; inset:8px;
+      border-radius:50%;
+      background: var(--sq6-cream);
+    }
+    #sq6-root .sq6-score-ring span{
+      position:relative;
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:30px;
+      font-weight:600;
+      color: var(--sq6-purple-deep);
+    }
+    #sq6-root .sq6-results h2{
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-size:24px;
+      font-weight:600;
+      margin:0 0 6px;
+      color: var(--sq6-purple-deep);
+    }
+    #sq6-root .sq6-result-copy{
+      font-size:13.5px;
+      color:#6b6488;
+      max-width:400px;
+      margin:0 auto 20px;
+      line-height:1.65;
+    }
+    #sq6-root .sq6-rule-box{
+      background: var(--sq6-purple);
+      color:#fff;
+      border-radius:14px;
+      padding:20px 22px;
+      margin:0 0 22px;
+    }
+    #sq6-root .sq6-rule-line{
+      font-family:'Cormorant Garamond','Georgia',serif;
+      font-style:italic;
+      font-size:18px;
+      margin:0 0 8px;
+    }
+    #sq6-root .sq6-rule-sub{
+      font-size:12.5px;
+      color:rgba(255,255,255,0.85);
+      line-height:1.6;
+      margin:0;
+    }
+    #sq6-root .sq6-restart-btn{
+      background:transparent;
+      border:1.5px solid var(--sq6-purple);
+      color: var(--sq6-purple-deep);
+      border-radius:99px;
+      padding:10px 22px;
+      font-family:inherit;
+      font-weight:600;
+      font-size:13px;
+      cursor:pointer;
+      transition: all .15s ease;
+    }
+    #sq6-root .sq6-restart-btn:hover{ background: var(--sq6-purple); color:#fff; }
 
-                <div class="tool-row">
-                  <!-- ESCONDIDO
-                  <a class="tool-chip" href="https://claude.ai/" target="_blank" rel="noopener">
-                    <span>
-                      <img src="/assets/icons/claude.png" alt="Claude-icon">
-                    </span>
-                    Claude
-                  </a>
-                  ESCONDIDO -->
+    @media (max-width:480px){
+      #sq6-root .sq6-card{ padding:24px 18px; border-radius:16px; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      #sq6-root *{ animation:none !important; transition:none !important; }
+    }
+  </style>
 
-                  <a class="tool-chip" href="https://chatgpt.com/" target="_blank" rel="noopener">
-                    <span>
-                      <img src="/assets/icons/chatgpt.png" alt="ChatGPT-icon">
-                    </span>
-                    ChatGPT
-                  </a>
+  <div class="sq6-eyebrow">Actividad práctica · Episodio 6</div>
+  <h3 class="sq6-title">¿IA o Fuente Oficial?</h3>
+  <p class="sq6-subtitle">8 situaciones reales. Decide a quién le preguntas: a la inteligencia artificial o a una fuente oficial.</p>
 
-                  <a class="tool-chip" href="https://gemini.google.com/" target="_blank" rel="noopener">
-                    <span>
-                      <img src="/assets/icons/gemini.png" alt="Gemini-icon">
-                    </span>
-                    Gemini
-                  </a>
-                </div>
+  <div class="sq6-progress-track"><div class="sq6-progress-fill" id="sq6-progressFill"></div></div>
+  <div class="sq6-progress-label">
+    <span id="sq6-progressText">Pregunta 1 de 8</span>
+    <span id="sq6-scoreText">Aciertos: 0</span>
+  </div>
 
-                <div class="prompt-box">
-                  <span id="prompt1">Actúa como un asistente que me ayuda a organizar mi día.<br>Estas son mis tareas:
-                    <span class="ph">[lista]</span>.<br>Ayúdame a ordenarlas, priorizarlas y simplificarlas.</span>
-                  <button class="copy-btn" onclick="copyPrompt('prompt1', this)">Copiar prompt</button>
-                </div>
-
-                <p class="hint"><b>Tip:</b> entre más concreta sea tu lista (con tiempos, fechas o lugares), más útil va
-                  a ser la respuesta.</p>
-              </div>
-            </div>
-          </li>
-
-          <!-- Episodio 2 (placeholder) -->
-          <li class="episode-item">
-            <a href="/quiz/">
-              <button class="episode-toggle">
-                <span>
-                  <span class="ep-num">Episodio 2</span>
-                  <span class="ep-name">¿la IA piensa? Inteligencia artificial vs. inteligencia humana</span>
-                </span>
-                <span class="chev">></span>
-              </button>
-              <div class="episode-body">
-                <div class="placeholder-text">La actividad se publica junto con el episodio. Próximamente ✦</div>
-              </div>
-            </a>
-          </li>
-
-          <!-- Episodio 3 (placeholder) -->
-          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
-            <button class="episode-toggle" onclick="toggleEpisode(this)">
-              <div class="ep-header-info">
-                <div class="ep-title-row">
-                  <span class="ep-num">Episodio 3</span>
-                </div>
-                <div>
-                  <span class="ep-name">¿Cuál es tu modelo? Los grandes modelos de lenguaje y cómo encontrar el
-                    tuyo</span>
-                </div>
-                <div class="release-subtitle">
-                  Se desbloquea el <span class="release-date-text">...</span>
-                </div>
-              </div>
-              <span class="chev badge-status">...</span>
-            </button>
-
-            <div class="episode-body">
-              <div class="episode-inner">
-                <span class="activity-label">Actividad práctica</span>
-
-                <ol class="step-list">
-                  <li>Abre tu modelo de lenguaje favorito:
-                    <strong>ChatGPT</strong>,
-                    <strong>Gemini</strong>,
-                    <strong>Gemini Notebook</strong>,
-                    <strong>Claude</strong> o
-                    <strong>Grok</strong>
-                  </li>
-                  <li>Copia el prompt de abajo y pégalo en una conversación nueva.</li>
-                  <li>Reemplaza <strong>[escribe aquí tu profesión u oficio]</strong> con tu profesión u oficio que
-                    estás realizando actualmente.</li>
-                  <li>Lee la respuesta y quédate con el orden que te propone: empieza por ahí.</li>
-                </ol>
-
-                <div class="tool-row">
-                  <a class="tool-chip" href="https://chatgpt.com" target="_blank" rel="noopener">
-                    <span><img src="/assets/icons/chatgpt.png" alt="ChatGPT-icon"></span> ChatGPT
-                  </a>
-                  <a class="tool-chip" href="https://gemini.google.com" target="_blank" rel="noopener">
-                    <span><img src="/assets/icons/gemini.png" alt="Gemini-icon"></span> Gemini
-                  </a>
-                  <a class="tool-chip" href="https://notebooklm.google/?hl=es" target="_blank" rel="noopener">
-                    <span><img src="/assets/icons/geminiNotebook.png" alt="GeminiNotebook-icon"></span> Gemini Notebook
-                  </a>
-                  <a class="tool-chip" href="https://claude.ai" target="_blank" rel="noopener">
-                    <span><img src="/assets/icons/claude.png" alt="Claude-icon"></span> Claude
-                  </a>
-                  <a class="tool-chip" href="https://grok.com" target="_blank" rel="noopener">
-                    <span><img src="/assets/icons/grok.webp" alt="Grok-icon"></span> Grok
-                  </a>
-                </div>
-
-                <div class="prompt-box">
-                  <span id="prompt2">Me dedico a
-                    <span class="ph">[escribe aquí tu profesión u oficio]</span>.
-                    <p>Quiero entender cómo funcionas y cómo puedo utilizarte de manera responsable, especialmente en
-                      situaciones relacionadas con mi trabajo.</p>
-
-                    <p>Respóndeme con palabras simples, párrafos cortos y ejemplos cotidianos aplicados, cuando sea
-                      posible, a mi profesión. Evita los tecnicismos y desarrolla un máximo de tres ideas por cada
-                      pregunta.</p>
-
-                    <ol>
-                      <div>
-                        <li>
-                          <p>¿Qué eres exactamente y qué no eres?</p>
-                        </li>
-                        <li>
-                          <p>¿Cuáles son tus principales limitaciones y por qué puedes equivocarte, confundir
-                            información o inventar datos?</p>
-                        </li>
-                        <li>
-                          <p>¿Qué aspectos importantes debería revisar en los términos de uso y en la política de
-                            privacidad de esta herramienta antes de utilizarla en mi trabajo?</p>
-                        </li>
-                      </div>
-                    </ol>
-                    <p>
-                      Organiza toda la respuesta de forma clara y fácil de entender.<br><br>
-                      Al final, resume lo más importante en cinco ideas clave que cualquier persona debería recordar
-                      antes de utilizar una inteligencia artificial.
-                    </p>
-                  </span>
-                  <button class="copy-btn" onclick="copyPrompt('prompt2', this)">Copiar prompt</button>
-                </div>
-
-                <p class="hint"><b>Tip:</b> prueba el mismo prompt en varias IA y descubre cuál se adapta mejor a tus
-                  necesidades.</p>
-              </div>
-            </div>
-          </li>
-
-          <!-- Episodio T1E4-->
-          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
-            <button class="episode-toggle" onclick="toggleEpisode(this)">
-              <div class="ep-header-info">
-                <div class="ep-title-row">
-                  <span class="ep-num">Episodio 4</span>
-                </div>
-                <div>
-                  <span class="ep-name">Minijuego Sinerg.ia Episodio 4</span>
-                </div>
-                <div class="release-subtitle">
-                  Se desbloquea el <span class="release-date-text">...</span>
-                </div>
-              </div>
-              <span class="chev badge-status">...</span>
-            </button>
-
-            <div class="episode-body">
-              <div class="episode-inner game-inner">
-                <span class="activity-label">Actividad práctica</span>
-
-                <ol class="step-list">
-                  <li><strong>Ingresa tus datos:</strong> Rellena el formulario con tu
-                    <strong>Nombre</strong> y <strong>País</strong>, El <strong>Correo</strong> es opcional y haz clic
-                    en "<strong>🚀 Comenzar a jugar</strong>".
-                  </li>
-                  <li><strong>Conecta las parejas:</strong> Arrastra la bolita desde el conector o haz clic en la
-                    pregunta y luego en la respuesta correspondiente de la columna derecha para tirar el cable.</li>
-                  <li><strong>Completa el tablero:</strong> Une todos los terminales lo más rápido posible y fallando lo
-                    menos posible para maximizar tu puntaje.</li>
-                  <li><strong>Revisa tu resultado:</strong> Al terminar, verás tu puntaje final, precisión y tiempo
-                    transcurrido, los cuales se registrarán automáticamente.</li>
-                </ol>
-
-                <div class="episode-game-wrapper" id="game-container-e4">
-
-                  <div class="cable-screen reg-screen">
-                    <div class="cable-reg-card">
-                      <div class="reg-icon">✨</div>
-                      <h2>¡Bienvenido al Desafío T1E4!</h2>
-                      <p class="reg-subtitle">Ingresa tus datos antes de conectar los cables en SINERG.ia</p>
-
-                      <form class="reg-form">
-                        <div class="input-group">
-                          <label>Nombre / Apodo <span class="required">*</span></label>
-                          <input type="text" class="user-name input-field" placeholder="Ej: Yani" required>
-                        </div>
-                        <div class="input-group">
-                          <label>País <span class="required">*</span></label>
-                          <input type="text" class="user-country input-field" placeholder="Ej: Colombia" required>
-                        </div>
-                        <div class="input-group">
-                          <label>Correo Electrónico <span class="optional">(Opcional)</span></label>
-                          <input type="email" class="user-email input-field" placeholder="tu@email.com">
-                        </div>
-                        <button type="submit" class="btn-start-game">🚀 Comenzar a jugar</button>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div class="cable-screen game-screen" style="display: none;">
-                    <div class="cable-header">
-                      <div class="stat-badge">👤 <span class="player-display">---</span></div>
-                      <div class="stat-badge">⏱️ <span class="cable-timer">00:00</span></div>
-                      <div class="stat-badge">🎯 Intentos: <strong class="cable-attempts">0</strong></div>
-                      <div class="stat-badge">🔌 Conexiones: <strong class="cable-matches">0 / 0</strong></div>
-                    </div>
-
-                    <p class="cable-instructions">
-                      ✨ <strong>Arrastra la bolita</strong> o haz <strong>clic en una pregunta y luego en su
-                        respuesta</strong> para conectarlas.
-                    </p>
-
-                    <div class="cable-board">
-                      <svg class="cable-svg-layer">
-                        <path class="temp-cable" fill="none" stroke="#c084fc" stroke-width="4" stroke-dasharray="6,6"
-                          style="display:none;"></path>
-                      </svg>
-                      <div class="cable-column col-questions"></div>
-                      <div class="cable-column col-answers"></div>
-                    </div>
-                  </div>
-
-                  <div class="cable-modal-overlay">
-                    <div class="cable-modal-card">
-                      <div class="modal-icon">🎉</div>
-                      <h2>¡Conexiones Completadas!</h2>
-                      <p class="sheets-status-text">Guardando tus resultados...</p>
-
-                      <div class="modal-score-grid">
-                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score" style="color: #9333ea">0
-                            PTS</strong></div>
-                        <div class="score-box"><span>Precisión</span><strong class="final-accuracy">0%</strong></div>
-                        <div class="score-box"><span>Tiempo</span><strong class="final-time">00:00</strong></div>
-                        <div class="score-box"><span>Intentos</span><strong class="final-attempts">0</strong></div>
-                      </div>
-
-                      <button class="btn-restart">🔄 Jugar de nuevo</button>
-                    </div>
-                  </div>
-
-                </div>
-          </li>
-
-          <!-- Episodio T1E5-->
-          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
-            <button class="episode-toggle" onclick="toggleEpisode(this)">
-              <div class="ep-header-info">
-                <div class="ep-title-row">
-                  <span class="ep-num">Episodio 5</span>
-                </div>
-                <div>
-                  <span class="ep-name">Minijuego Sinerg.ia Episodio 5</span>
-                </div>
-                <div class="release-subtitle">
-                  Se desbloquea el <span class="release-date-text">...</span>
-                </div>
-              </div>
-              <span class="chev badge-status">...</span>
-            </button>
-
-            <div class="episode-body">
-              <div class="episode-inner">
-                <span class="activity-label">Actividad práctica</span>
-
-                <ol class="step-list">
-                  <li><strong>Ingresa tus datos:</strong> Rellena el formulario con tu
-                    <strong>Nombre</strong> y <strong>País</strong>, El <strong>Correo</strong> es opcional y haz clic
-                    en "<strong>🚀 Comenzar a jugar</strong>".
-                  </li>
-                  <li><strong>Conecta las parejas:</strong> Arrastra la bolita desde el conector o haz clic en la
-                    pregunta y luego en la respuesta correspondiente de la columna derecha para tirar el cable.</li>
-                  <li><strong>Completa el tablero:</strong> Une todos los terminales lo más rápido posible y fallando lo
-                    menos posible para maximizar tu puntaje.</li>
-                  <li><strong>Revisa tu resultado:</strong> Al terminar, verás tu puntaje final, precisión y tiempo
-                    transcurrido, los cuales se registrarán automáticamente.</li>
-                </ol>
-
-                <div class="episode-game-wrapper" id="game-container-e5">
-
-                  <div class="cable-screen reg-screen">
-                    <div class="cable-reg-card">
-                      <div class="reg-icon">✨</div>
-                      <h2>¡Bienvenido al Desafío T1E5!</h2>
-                      <p class="reg-subtitle">Ingresa tus datos antes de conectar los cables en SINERG.ia</p>
-
-                      <form class="reg-form">
-                        <div class="input-group">
-                          <label>Nombre / Apodo <span class="required">*</span></label>
-                          <input type="text" class="user-name input-field" placeholder="Ej: Mari" required>
-                        </div>
-                        <div class="input-group">
-                          <label>País <span class="required">*</span></label>
-                          <input type="text" class="user-country input-field" placeholder="Ej: Argentina" required>
-                        </div>
-                        <div class="input-group">
-                          <label>Correo Electrónico <span class="optional">(Opcional)</span></label>
-                          <input type="email" class="user-email input-field" placeholder="tu@email.com">
-                        </div>
-                        <button type="submit" class="btn-start-game">🚀 Comenzar a jugar</button>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div class="cable-screen game-screen" style="display: none;">
-                    <div class="cable-header">
-                      <div class="stat-badge">👤 <span class="player-display">---</span></div>
-                      <div class="stat-badge">⏱️ <span class="cable-timer">00:00</span></div>
-                      <div class="stat-badge">🎯 Intentos: <strong class="cable-attempts">0</strong></div>
-                      <div class="stat-badge">🔌 Conexiones: <strong class="cable-matches">0 / 0</strong></div>
-                    </div>
-
-                    <p class="cable-instructions">
-                      ✨ <strong>Arrastra la bolita</strong> o haz <strong>clic en una pregunta y luego en su
-                        respuesta</strong> para conectarlas.
-                    </p>
-
-                    <div class="cable-board">
-                      <svg class="cable-svg-layer">
-                        <path class="temp-cable" fill="none" stroke="#c084fc" stroke-width="4" stroke-dasharray="6,6"
-                          style="display:none;"></path>
-                      </svg>
-                      <div class="cable-column col-questions"></div>
-                      <div class="cable-column col-answers"></div>
-                    </div>
-                  </div>
-
-                  <div class="cable-modal-overlay">
-                    <div class="cable-modal-card">
-                      <div class="modal-icon">🎉</div>
-                      <h2>¡Conexiones Completadas!</h2>
-                      <p class="sheets-status-text">Guardando tus resultados...</p>
-
-                      <div class="modal-score-grid">
-                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score" style="color: #9333ea">0
-                            PTS</strong></div>
-                        <div class="score-box"><span>Precisión</span><strong class="final-accuracy">0%</strong></div>
-                        <div class="score-box"><span>Tiempo</span><strong class="final-time">00:00</strong></div>
-                        <div class="score-box"><span>Intentos</span><strong class="final-attempts">0</strong></div>
-                      </div>
-
-                      <button class="btn-restart">🔄 Jugar de nuevo</button>
-                    </div>
-                  </div>
-
-                </div>
-          </li>
-          <!-- ========== fin Temporada 1 ========== -->
-
-          <!--
-      Para una Temporada 2, se duplica todo el bloque <div class="season"> ... </div>
-      de arriba, se cambia el título y se agrega sus <li class="episode-item"> con
-      la misma estructura que el Episodio 1 :D
-    -->
-
+  <div class="sq6-card">
+    <div class="sq6-body" id="sq6-body">
+      <div class="sq6-qtag" id="sq6-qTag">Situación 1</div>
+      <p class="sq6-scenario" id="sq6-scenarioText"></p>
+      <div class="sq6-options" id="sq6-optionsWrap"></div>
+      <div class="sq6-explanation" id="sq6-explanationBox"></div>
+      <div class="sq6-next-wrap">
+        <button class="sq6-next-btn" id="sq6-nextBtn">Siguiente →</button>
       </div>
-  </main>
+    </div>
 
-  <footer>
-    <span class="logo">✦ Sinerg.ia</span>
-    Un espacio para pensar la IA con calma, sin mitos y sin miedo.
-  </footer>
+    <div class="sq6-results" id="sq6-resultsWrap">
+      <div class="sq6-score-ring" id="sq6-scoreRing" style="--sq6-pct:0"><span id="sq6-scoreRingText">0/8</span></div>
+      <h2 id="sq6-resultTitle">¿Cómo te fue?</h2>
+      <p class="sq6-result-copy" id="sq6-resultCopy"></p>
+      <div class="sq6-rule-box">
+        <p class="sq6-rule-line">"La IA organiza. La fuente oficial confirma."</p>
+        <p class="sq6-rule-sub">La inteligencia artificial puede ayudarte a resumir, traducir, organizar y comunicar información más rápido. Pero cuando necesitas confirmar qué está ocurriendo realmente, las autoridades y fuentes oficiales siguen teniendo la última palabra.</p>
+      </div>
+      <button class="sq6-restart-btn" id="sq6-restartBtn">↺ Jugar de nuevo</button>
+    </div>
+  </div>
+</div>
 
-  <script src="/js/script.js"></script>
-  <script src="/js/game.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Inicialización Episodio 4
-      new CableMatchingGame({
-        containerId: "game-container-e4",
-        episodeId: "T1E4",
-        pairs: [
-          { id: 1, q: "Bajar el tono con un cliente furioso", a: "Calidez conversacional", ai: "ChatGPT" },
-          { id: 2, q: "Propuesta de patrocinio en Slides, Drive y Sheets", a: "Integrado a Google Workspace", ai: "Gemini" },
-          { id: 3, q: "Dato de tarifas actualizado de un proveedor", a: "Conectado a búsqueda actual", ai: "Gemini" },
-          { id: 4, q: "Editar el cielo de una foto", a: "Genera imágenes con calidad", ai: "ChatGPT" }
-        ]
-      });
+<script>
+(function(){
+  var questions = [
+    {
+      text: "“Quiero saber si mañana va a ocurrir otro terremoto.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 1,
+      explanation: "La IA no puede predecir cuándo ocurrirá un terremoto. Para información sísmica y comunicados debes consultar organismos oficiales."
+    },
+    {
+      text: "“Tengo un comunicado oficial sobre la emergencia, pero no entiendo algunas palabras.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 0,
+      explanation: "Puedes darle a la IA el comunicado ya verificado y pedirle que lo explique de forma sencilla, sin agregar información externa."
+    },
+    {
+      text: "“Necesitamos crear rápidamente una publicación para encontrar una mascota perdida.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 0,
+      explanation: "La IA puede ayudarte a organizar los datos, redactar el aviso y adaptarlo para Instagram o WhatsApp. Utiliza siempre fotografías y datos reales de la mascota."
+    },
+    {
+      text: "“Me llegó un audio de WhatsApp diciendo que viene una emergencia mucho peor.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 1,
+      explanation: "Antes de reenviar, verifica si existe información publicada por las autoridades correspondientes."
+    },
+    {
+      text: "“Necesito saber si actualmente hay una alerta meteorológica en mi ciudad.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 1,
+      explanation: "Las alertas vigentes deben comprobarse directamente con el organismo meteorológico o de gestión del riesgo correspondiente."
+    },
+    {
+      text: "“Tengo recomendaciones oficiales para una emergencia y quiero convertirlas en un checklist sencillo para mi familia.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 0,
+      explanation: "La IA puede reorganizar información oficial que tú le proporciones para hacerla más clara y práctica."
+    },
+    {
+      text: "“Vi una fotografía en redes que supuestamente muestra los daños de la emergencia y quiero saber si realmente corresponde a lo que está pasando.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 1,
+      explanation: "No deberías confiar únicamente en una IA para confirmar la autenticidad o contexto de una imagen. Busca publicaciones oficiales y medios confiables que permitan verificarla."
+    },
+    {
+      text: "“Necesitamos publicar rápidamente información sobre una persona desaparecida después de una emergencia.”",
+      options: ["Inteligencia Artificial", "Fuente Oficial"],
+      correct: 0,
+      explanation: "La IA puede ayudarte a organizar nombre, edad, último lugar donde fue vista, descripción y contacto en diferentes formatos. Nunca uses IA para modificar o inventar la apariencia de la persona: utiliza fotografía e información reales y verificadas."
+    }
+  ];
 
-      // Inicialización Episodio 5
-      new CableMatchingGame({
-        containerId: "game-container-e5",
-        episodeId: "T1E5",
-        pairs: [
-          { id: 1, q: "Expediente judicial con pruebas y doctrina", a: "Ancla la respuesta en tus fuentes", ai: "Gemini Notebook" },
-          { id: 2, q: "Estrategia y diseño de página web personal", a: "Piensa la idea desde cero", ai: "Claude" },
-          { id: 3, q: "Biblioteca personal con múltiples fuentes", a: "Conecta y organiza documentos", ai: "Gemini Notebook" },
-          { id: 4, q: "Profundizar un proyecto creativo y complejo", a: "Acompaña con visión propia", ai: "Claude" }
-        ]
-      });
+  var current = 0, score = 0, answered = false;
+
+  var qTag = document.getElementById('sq6-qTag');
+  var scenarioText = document.getElementById('sq6-scenarioText');
+  var optionsWrap = document.getElementById('sq6-optionsWrap');
+  var explanationBox = document.getElementById('sq6-explanationBox');
+  var nextBtn = document.getElementById('sq6-nextBtn');
+  var progressFill = document.getElementById('sq6-progressFill');
+  var progressText = document.getElementById('sq6-progressText');
+  var scoreText = document.getElementById('sq6-scoreText');
+  var body = document.getElementById('sq6-body');
+  var resultsWrap = document.getElementById('sq6-resultsWrap');
+
+  function renderQuestion(){
+    answered = false;
+    var q = questions[current];
+    qTag.textContent = "Situación " + (current + 1);
+    scenarioText.textContent = q.text;
+    optionsWrap.innerHTML = "";
+    explanationBox.classList.remove('show');
+    explanationBox.innerHTML = "";
+    nextBtn.classList.remove('show');
+
+    q.options.forEach(function(optLabel, idx){
+      var btn = document.createElement('button');
+      btn.className = 'sq6-opt';
+      btn.innerHTML = '<span class="sq6-opt-icon"></span><span>' + optLabel + '</span>';
+      btn.addEventListener('click', function(){ selectAnswer(idx, btn); });
+      optionsWrap.appendChild(btn);
     });
-  </script>
 
-</body>
+    progressFill.style.width = ((current / questions.length) * 100 + (100 / questions.length)) + "%";
+    progressText.textContent = "Pregunta " + (current + 1) + " de " + questions.length;
+    scoreText.textContent = "Aciertos: " + score;
+  }
 
-</html>
+  function selectAnswer(idx){
+    if(answered) return;
+    answered = true;
+    var q = questions[current];
+    var allBtns = optionsWrap.querySelectorAll('.sq6-opt');
+
+    allBtns.forEach(function(b, i){
+      b.disabled = true;
+      var icon = b.querySelector('.sq6-opt-icon');
+      if(i === q.correct){
+        b.classList.add('correct');
+        icon.textContent = '✓';
+      } else if(i === idx){
+        b.classList.add('incorrect');
+        icon.textContent = '✕';
+      } else {
+        b.classList.add('dim');
+      }
+    });
+
+    if(idx === q.correct) score++;
+
+    explanationBox.innerHTML = '<strong>' + (idx === q.correct ? '¡Correcto! ' : 'Ojo: ') + '</strong>' + q.explanation;
+    explanationBox.classList.add('show');
+
+    scoreText.textContent = "Aciertos: " + score;
+    nextBtn.classList.add('show');
+    nextBtn.textContent = current === questions.length - 1 ? 'Ver resultado →' : 'Siguiente →';
+  }
+
+  nextBtn.addEventListener('click', function(){
+    current++;
+    if(current < questions.length){
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  });
+
+  function showResults(){
+    body.classList.add('hide');
+    resultsWrap.classList.add('show');
+    progressFill.style.width = "100%";
+    progressText.textContent = "Completado";
+
+    var pct = Math.round((score / questions.length) * 100);
+    document.getElementById('sq6-scoreRing').style.setProperty('--sq6-pct', pct);
+    document.getElementById('sq6-scoreRingText').textContent = score + "/" + questions.length;
+
+    var title, copy;
+    if(score === questions.length){
+      title = "Criterio afinado ✨";
+      copy = "Distinguiste perfectamente cuándo apoyarte en la IA y cuándo confirmar con una fuente oficial. Ese instinto es justo lo que este episodio quería dejarte.";
+    } else if(score >= questions.length - 2){
+      title = "Muy buen criterio";
+      copy = "Tienes clara la diferencia entre organizar información y confirmarla. Repasa las explicaciones de lo que se te escapó y quedará completamente afinado.";
+    } else {
+      title = "Buen punto de partida";
+      copy = "Todavía se mezclan un poco los momentos de usar IA y los de acudir a una fuente oficial. Vuelve a leer las explicaciones: ahí está la regla completa.";
+    }
+    document.getElementById('sq6-resultTitle').textContent = title;
+    document.getElementById('sq6-resultCopy').textContent = copy;
+  }
+
+  document.getElementById('sq6-restartBtn').addEventListener('click', function(){
+    current = 0;
+    score = 0;
+    body.classList.remove('hide');
+    resultsWrap.classList.remove('show');
+    renderQuestion();
+  });
+
+  renderQuestion();
+})();
+</script>
