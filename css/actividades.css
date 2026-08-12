@@ -298,3 +298,83 @@ footer .logo{display:block;margin-bottom:8px;font-size:1.4rem;}
 .episode-item.locked .episode-body {
   display: none !important;
 }
+
+/* Nuevo Cambio */
+/* =========================================
+   Menú de Temporadas (Tabs)
+========================================= */
+.season-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto; /* Permite scroll horizontal en móviles si hay muchas temporadas */
+  padding-bottom: 8px;
+}
+
+.season-tab {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--dark);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.season-tab:hover {
+  border-color: var(--purple);
+}
+
+.season-tab.active {
+  background: var(--purple);
+  color: #ffffff;
+  border-color: var(--purple);
+}
+
+/* Ocultar temporadas inactivas y mostrar la activa */
+.season {
+  display: none; 
+}
+
+.season.active-season {
+  display: block; 
+}
+
+/* =========================================
+   Botón Scroll to Top
+========================================= */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 6vw;
+  width: 45px;
+  height: 45px;
+  background: var(--purple);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(102, 90, 156, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: var(--lilac);
+  transform: translateY(-3px);
+}

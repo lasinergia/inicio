@@ -38,10 +38,16 @@
   </section>
 
   <main>
+    <div class="season-tabs">
+      <button class="season-tab active" data-target="season-1">Temporada 1</button>
+      <!--
+      <button class="season-tab" data-target="season-2">Temporada 2</button>
+      -->
+      </div>
+
     <div class="season-grid">
 
-      <!-- ============ TEMPORADA 1 ============ -->
-      <div class="season">
+      <div class="season active-season" id="season-1">
         <div class="season-head">
           <h2 class="season-title">Temporada 1</h2>
           <span class="season-sub">6 episodios</span>
@@ -49,7 +55,6 @@
 
         <ul class="episode-list">
 
-          <!-- Episodio 1 -->
           <li class="episode-item">
             <button class="episode-toggle" onclick="toggleEpisode(this)">
               <span>
@@ -72,15 +77,6 @@
                 </ol>
 
                 <div class="tool-row">
-                  <!-- ESCONDIDO
-                  <a class="tool-chip" href="https://claude.ai/" target="_blank" rel="noopener">
-                    <span>
-                      <img src="/assets/icons/claude.png" alt="Claude-icon">
-                    </span>
-                    Claude
-                  </a>
-                  ESCONDIDO -->
-
                   <a class="tool-chip" href="https://chatgpt.com/" target="_blank" rel="noopener">
                     <span>
                       <img src="/assets/icons/chatgpt.png" alt="ChatGPT-icon">
@@ -108,7 +104,6 @@
             </div>
           </li>
 
-          <!-- Episodio 2 (placeholder) -->
           <li class="episode-item">
             <a href="/quiz/">
               <button class="episode-toggle">
@@ -124,9 +119,7 @@
             </a>
           </li>
 
-          <!-- Episodio 3 (placeholder) -->
           <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
             <button class="episode-toggle" onclick="toggleEpisode(this)">
               <div class="ep-header-info">
                 <div class="ep-title-row">
@@ -219,9 +212,7 @@
             </div>
           </li>
 
-          <!-- Episodio T1E4-->
           <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
             <button class="episode-toggle" onclick="toggleEpisode(this)">
               <div class="ep-header-info">
                 <div class="ep-title-row">
@@ -323,11 +314,11 @@
                   </div>
 
                 </div>
+              </div>
+            </div>
           </li>
 
-          <!-- Episodio T1E5-->
           <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
             <button class="episode-toggle" onclick="toggleEpisode(this)">
               <div class="ep-header-info">
                 <div class="ep-title-row">
@@ -429,11 +420,11 @@
                   </div>
 
                 </div>
+              </div>
+            </div>
           </li>
 
-          <!-- Episodio 6-->
           <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
-            <!-- Viernes 24 del 2026 a las 17:00 Argentina GMT -3:00 -->
             <button class="episode-toggle" onclick="toggleEpisode(this)">
               <div class="ep-header-info">
                 <div class="ep-title-row">
@@ -492,15 +483,18 @@
                 </div>
               </div>
             </div>
-            <!-- ========== fin Temporada 1 ========== -->
+          </li>
 
-            <!--
-      Para una Temporada 2, se duplica todo el bloque <div class="season"> ... </div>
-      de arriba, se cambia el título y se agrega sus <li class="episode-item"> con
-      la misma estructura que el Episodio 1 :D
-    -->
-
+        </ul>
       </div>
+      <div class="season" id="season-2">
+        <div class="season-head">
+          <h2 class="season-title">Temporada 2</h2>
+          <span class="season-sub">Próximamente</span>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <footer>
@@ -537,7 +531,7 @@
       });
     });
 
-    // Inicializacion Episodio 6
+    // Inicialización Episodio 6
     (function () {
       var questions = [
         {
@@ -700,8 +694,52 @@
 
       renderQuestion();
     })();
-  </script>
 
+    /* Lógica del Menú de Temporadas y Scroll Top */
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* --- Menú de Temporadas --- */
+      const tabs = document.querySelectorAll('.season-tab');
+      const seasons = document.querySelectorAll('.season');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          seasons.forEach(s => s.classList.remove('active-season'));
+
+          tab.classList.add('active');
+          const targetId = tab.getAttribute('data-target');
+          const targetSeason = document.getElementById(targetId);
+
+          if (targetSeason) {
+            targetSeason.classList.add('active-season');
+          }
+        });
+      });
+
+      /* --- Botón Volver Arriba --- */
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          scrollTopBtn.classList.add('show');
+        } else {
+          scrollTopBtn.classList.remove('show');
+        }
+      });
+
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+    });
+  </script>
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">↑</button>
 </body>
 
 </html>
