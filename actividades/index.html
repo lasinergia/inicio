@@ -321,7 +321,7 @@
           </li>
 
           <!-- Episodio T1E5-->
-          <li class="episode-item" data-release="2026-08-14T17:00:00-03:00">
+          <li class="episode-item" data-release="2026-07-24T17:00:00-03:00">
             <button class="episode-toggle" onclick="toggleEpisode(this)">
               <div class="ep-header-info">
                 <div class="ep-title-row">
@@ -340,41 +340,41 @@
             <div class="episode-body">
               <div class="episode-inner">
                 <span class="activity-label">Actividad práctica</span>
-                <div class="sinergia-quiz-ep5" id="sq5-root">
-                  <p class="sq5-subtitle">8 situaciones reales. Decide a quién le preguntas: a la inteligencia
+                <div class="sinergia-quiz-ep6" id="sq6-root">
+                  <p class="sq6-subtitle">8 situaciones reales. Decide a quién le preguntas: a la inteligencia
                     artificial o a una fuente oficial.</p>
 
-                  <div class="sq5-progress-track">
-                    <div class="sq5-progress-fill" id="sq5-progressFill"></div>
+                  <div class="sq6-progress-track">
+                    <div class="sq6-progress-fill" id="sq6-progressFill"></div>
                   </div>
-                  <div class="sq5-progress-label">
-                    <span id="sq5-progressText">Pregunta 1 de 8</span>
-                    <span id="sq5-scoreText">Aciertos: 0</span>
+                  <div class="sq6-progress-label">
+                    <span id="sq6-progressText">Pregunta 1 de 8</span>
+                    <span id="sq6-scoreText">Aciertos: 0</span>
                   </div>
 
-                  <div class="sq5-card">
-                    <div class="sq5-body" id="sq5-body">
-                      <div class="sq5-qtag" id="sq5-qTag">Situación 1</div>
-                      <p class="sq5-scenario" id="sq5-scenarioText"></p>
-                      <div class="sq5-options" id="sq5-optionsWrap"></div>
-                      <div class="sq5-explanation" id="sq5-explanationBox"></div>
-                      <div class="sq5-next-wrap">
-                        <button class="sq5-next-btn" id="sq5-nextBtn">Siguiente →</button>
+                  <div class="sq6-card">
+                    <div class="sq6-body" id="sq6-body">
+                      <div class="sq6-qtag" id="sq6-qTag">Situación 1</div>
+                      <p class="sq6-scenario" id="sq6-scenarioText"></p>
+                      <div class="sq6-options" id="sq6-optionsWrap"></div>
+                      <div class="sq6-explanation" id="sq6-explanationBox"></div>
+                      <div class="sq6-next-wrap">
+                        <button class="sq6-next-btn" id="sq6-nextBtn">Siguiente →</button>
                       </div>
                     </div>
 
-                    <div class="sq5-results" id="sq5-resultsWrap">
-                      <div class="sq5-score-ring" id="sq5-scoreRing" style="--sq5-pct:0"><span
-                          id="sq5-scoreRingText">0/8</span></div>
-                      <h2 id="sq5-resultTitle">¿Cómo te fue?</h2>
-                      <p class="sq5-result-copy" id="sq5-resultCopy"></p>
-                      <div class="sq5-rule-box">
-                        <p class="sq5-rule-line">"La IA organiza. La fuente oficial confirma."</p>
-                        <p class="sq5-rule-sub">La inteligencia artificial puede ayudarte a resumir, traducir, organizar
+                    <div class="sq6-results" id="sq6-resultsWrap">
+                      <div class="sq6-score-ring" id="sq6-scoreRing" style="--sq6-pct:0"><span
+                          id="sq6-scoreRingText">0/8</span></div>
+                      <h2 id="sq6-resultTitle">¿Cómo te fue?</h2>
+                      <p class="sq6-result-copy" id="sq6-resultCopy"></p>
+                      <div class="sq6-rule-box">
+                        <p class="sq6-rule-line">"La IA organiza. La fuente oficial confirma."</p>
+                        <p class="sq6-rule-sub">La inteligencia artificial puede ayudarte a resumir, traducir, organizar
                           y comunicar información más rápido. Pero cuando necesitas confirmar qué está ocurriendo
                           realmente, las autoridades y fuentes oficiales siguen teniendo la última palabra.</p>
                       </div>
-                      <button class="sq5-restart-btn" id="sq5-restartBtn">↺ Jugar de nuevo</button>
+                      <button class="sq6-restart-btn" id="sq6-restartBtn">↺ Jugar de nuevo</button>
                     </div>
                   </div>
                 </div>
@@ -579,16 +579,16 @@
 
       var current = 0, score = 0, answered = false;
 
-      var qTag = document.getElementById('sq5-qTag');
-      var scenarioText = document.getElementById('sq5-scenarioText');
-      var optionsWrap = document.getElementById('sq5-optionsWrap');
-      var explanationBox = document.getElementById('sq5-explanationBox');
-      var nextBtn = document.getElementById('sq5-nextBtn');
-      var progressFill = document.getElementById('sq5-progressFill');
-      var progressText = document.getElementById('sq5-progressText');
-      var scoreText = document.getElementById('sq5-scoreText');
-      var body = document.getElementById('sq5-body');
-      var resultsWrap = document.getElementById('sq5-resultsWrap');
+      var qTag = document.getElementById('sq6-qTag');
+      var scenarioText = document.getElementById('sq6-scenarioText');
+      var optionsWrap = document.getElementById('sq6-optionsWrap');
+      var explanationBox = document.getElementById('sq6-explanationBox');
+      var nextBtn = document.getElementById('sq6-nextBtn');
+      var progressFill = document.getElementById('sq6-progressFill');
+      var progressText = document.getElementById('sq6-progressText');
+      var scoreText = document.getElementById('sq6-scoreText');
+      var body = document.getElementById('sq6-body');
+      var resultsWrap = document.getElementById('sq6-resultsWrap');
 
       function renderQuestion() {
         answered = false;
@@ -602,8 +602,8 @@
 
         q.options.forEach(function (optLabel, idx) {
           var btn = document.createElement('button');
-          btn.className = 'sq5-opt';
-          btn.innerHTML = '<span class="sq5-opt-icon"></span><span>' + optLabel + '</span>';
+          btn.className = 'sq6-opt';
+          btn.innerHTML = '<span class="sq6-opt-icon"></span><span>' + optLabel + '</span>';
           btn.addEventListener('click', function () { selectAnswer(idx, btn); });
           optionsWrap.appendChild(btn);
         });
@@ -617,11 +617,11 @@
         if (answered) return;
         answered = true;
         var q = questions[current];
-        var allBtns = optionsWrap.querySelectorAll('.sq5-opt');
+        var allBtns = optionsWrap.querySelectorAll('.sq6-opt');
 
         allBtns.forEach(function (b, i) {
           b.disabled = true;
-          var icon = b.querySelector('.sq5-opt-icon');
+          var icon = b.querySelector('.sq6-opt-icon');
           if (i === q.correct) {
             b.classList.add('correct');
             icon.textContent = '✓';
@@ -659,8 +659,8 @@
         progressText.textContent = "Completado";
 
         var pct = Math.round((score / questions.length) * 100);
-        document.getElementById('sq5-scoreRing').style.setProperty('--sq5-pct', pct);
-        document.getElementById('sq5-scoreRingText').textContent = score + "/" + questions.length;
+        document.getElementById('sq6-scoreRing').style.setProperty('--sq6-pct', pct);
+        document.getElementById('sq6-scoreRingText').textContent = score + "/" + questions.length;
 
         var title, copy;
         if (score === questions.length) {
@@ -673,11 +673,11 @@
           title = "Buen punto de partida";
           copy = "Todavía se mezclan un poco los momentos de usar IA y los de acudir a una fuente oficial. Vuelve a leer las explicaciones: ahí está la regla completa.";
         }
-        document.getElementById('sq5-resultTitle').textContent = title;
-        document.getElementById('sq5-resultCopy').textContent = copy;
+        document.getElementById('sq6-resultTitle').textContent = title;
+        document.getElementById('sq6-resultCopy').textContent = copy;
       }
 
-      document.getElementById('sq5-restartBtn').addEventListener('click', function () {
+      document.getElementById('sq6-restartBtn').addEventListener('click', function () {
         current = 0;
         score = 0;
         body.classList.remove('hide');
