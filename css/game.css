@@ -755,14 +755,14 @@
 
 #sq5-root .sq5-explanation.show {
   display: block;
-  animation: sq6fade .35s ease;
+  animation: sq5fade .35s ease;
 }
 
 #sq5-root .sq5-explanation strong {
   color: var(--sq5-purple-deep);
 }
 
-@keyframes sq6fade {
+@keyframes sq5fade {
   from {
     opacity: 0;
     transform: translateY(4px);
