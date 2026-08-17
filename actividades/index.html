@@ -43,7 +43,7 @@
       <!--
       <button class="season-tab" data-target="season-2">Temporada 2</button>
       -->
-      </div>
+    </div>
 
     <div class="season-grid">
 
@@ -53,7 +53,7 @@
           <span class="season-sub">5 episodios</span>
         </div>
 
-      <!-- ============ TEMPORADA 1 ============ -->
+        <!-- ============ TEMPORADA 1 ============ -->
         <ul class="episode-list">
 
           <!-- Episodio 1 -->
@@ -306,7 +306,8 @@
                       <p class="sheets-status-text">Guardando tus resultados...</p>
 
                       <div class="modal-score-grid">
-                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score" style="color: #9333ea">0
+                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score"
+                            style="color: #9333ea">0
                             PTS</strong></div>
                         <div class="score-box"><span>Precisión</span><strong class="final-accuracy">0%</strong></div>
                         <div class="score-box"><span>Tiempo</span><strong class="final-time">00:00</strong></div>
@@ -340,41 +341,41 @@
             <div class="episode-body">
               <div class="episode-inner">
                 <span class="activity-label">Actividad práctica</span>
-                <div class="sinergia-quiz-ep6" id="sq6-root">
-                  <p class="sq6-subtitle">8 situaciones reales. Decide a quién le preguntas: a la inteligencia
+                <div class="sinergia-quiz-ep6" id="sq5-root">
+                  <p class="sq5-subtitle">8 situaciones reales. Decide a quién le preguntas: a la inteligencia
                     artificial o a una fuente oficial.</p>
 
-                  <div class="sq6-progress-track">
-                    <div class="sq6-progress-fill" id="sq6-progressFill"></div>
+                  <div class="sq5-progress-track">
+                    <div class="sq5-progress-fill" id="sq5-progressFill"></div>
                   </div>
-                  <div class="sq6-progress-label">
-                    <span id="sq6-progressText">Pregunta 1 de 8</span>
-                    <span id="sq6-scoreText">Aciertos: 0</span>
+                  <div class="sq5-progress-label">
+                    <span id="sq5-progressText">Pregunta 1 de 8</span>
+                    <span id="sq5-scoreText">Aciertos: 0</span>
                   </div>
 
-                  <div class="sq6-card">
-                    <div class="sq6-body" id="sq6-body">
-                      <div class="sq6-qtag" id="sq6-qTag">Situación 1</div>
-                      <p class="sq6-scenario" id="sq6-scenarioText"></p>
-                      <div class="sq6-options" id="sq6-optionsWrap"></div>
-                      <div class="sq6-explanation" id="sq6-explanationBox"></div>
-                      <div class="sq6-next-wrap">
-                        <button class="sq6-next-btn" id="sq6-nextBtn">Siguiente →</button>
+                  <div class="sq5-card">
+                    <div class="sq5-body" id="sq5-body">
+                      <div class="sq5-qtag" id="sq5-qTag">Situación 1</div>
+                      <p class="sq5-scenario" id="sq5-scenarioText"></p>
+                      <div class="sq5-options" id="sq5-optionsWrap"></div>
+                      <div class="sq5-explanation" id="sq5-explanationBox"></div>
+                      <div class="sq5-next-wrap">
+                        <button class="sq5-next-btn" id="sq5-nextBtn">Siguiente →</button>
                       </div>
                     </div>
 
-                    <div class="sq6-results" id="sq6-resultsWrap">
-                      <div class="sq6-score-ring" id="sq6-scoreRing" style="--sq6-pct:0"><span
-                          id="sq6-scoreRingText">0/8</span></div>
-                      <h2 id="sq6-resultTitle">¿Cómo te fue?</h2>
-                      <p class="sq6-result-copy" id="sq6-resultCopy"></p>
-                      <div class="sq6-rule-box">
-                        <p class="sq6-rule-line">"La IA organiza. La fuente oficial confirma."</p>
-                        <p class="sq6-rule-sub">La inteligencia artificial puede ayudarte a resumir, traducir, organizar
+                    <div class="sq5-results" id="sq5-resultsWrap">
+                      <div class="sq5-score-ring" id="sq5-scoreRing" style="--sq5-pct:0"><span
+                          id="sq5-scoreRingText">0/8</span></div>
+                      <h2 id="sq5-resultTitle">¿Cómo te fue?</h2>
+                      <p class="sq5-result-copy" id="sq5-resultCopy"></p>
+                      <div class="sq5-rule-box">
+                        <p class="sq5-rule-line">"La IA organiza. La fuente oficial confirma."</p>
+                        <p class="sq5-rule-sub">La inteligencia artificial puede ayudarte a resumir, traducir, organizar
                           y comunicar información más rápido. Pero cuando necesitas confirmar qué está ocurriendo
                           realmente, las autoridades y fuentes oficiales siguen teniendo la última palabra.</p>
                       </div>
-                      <button class="sq6-restart-btn" id="sq6-restartBtn">↺ Jugar de nuevo</button>
+                      <button class="sq5-restart-btn" id="sq5-restartBtn">↺ Jugar de nuevo</button>
                     </div>
                   </div>
                 </div>
@@ -496,11 +497,11 @@
       </div>
     </div>
     <div class="season" id="season-2">
-        <div class="season-head">
-          <h2 class="season-title">Temporada 2</h2>
-          <span class="season-sub">Próximamente</span>
-        </div>
+      <div class="season-head">
+        <h2 class="season-title">Temporada 2</h2>
+        <span class="season-sub">Próximamente</span>
       </div>
+    </div>
   </main>
 
   <footer>
@@ -525,230 +526,230 @@
       });
 
       /* Inicializacion Episodio 5 */
-    (function () {
-      var questions = [
-        {
-          text: "“Quiero saber si mañana va a ocurrir otro terremoto.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 1,
-          explanation: "La IA no puede predecir cuándo ocurrirá un terremoto. Para información sísmica y comunicados debes consultar organismos oficiales."
-        },
-        {
-          text: "“Tengo un comunicado oficial sobre la emergencia, pero no entiendo algunas palabras.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 0,
-          explanation: "Puedes darle a la IA el comunicado ya verificado y pedirle que lo explique de forma sencilla, sin agregar información externa."
-        },
-        {
-          text: "“Necesitamos crear rápidamente una publicación para encontrar una mascota perdida.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 0,
-          explanation: "La IA puede ayudarte a organizar los datos, redactar el aviso y adaptarlo para Instagram o WhatsApp. Utiliza siempre fotografías y datos reales de la mascota."
-        },
-        {
-          text: "“Me llegó un audio de WhatsApp diciendo que viene una emergencia mucho peor.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 1,
-          explanation: "Antes de reenviar, verifica si existe información publicada por las autoridades correspondientes."
-        },
-        {
-          text: "“Necesito saber si actualmente hay una alerta meteorológica en mi ciudad.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 1,
-          explanation: "Las alertas vigentes deben comprobarse directamente con el organismo meteorológico o de gestión del riesgo correspondiente."
-        },
-        {
-          text: "“Tengo recomendaciones oficiales para una emergencia y quiero convertirlas en un checklist sencillo para mi familia.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 0,
-          explanation: "La IA puede reorganizar información oficial que tú le proporciones para hacerla más clara y práctica."
-        },
-        {
-          text: "“Vi una fotografía en redes que supuestamente muestra los daños de la emergencia y quiero saber si realmente corresponde a lo que está pasando.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 1,
-          explanation: "No deberías confiar únicamente en una IA para confirmar la autenticidad o contexto de una imagen. Busca publicaciones oficiales y medios confiables que permitan verificarla."
-        },
-        {
-          text: "“Necesitamos publicar rápidamente información sobre una persona desaparecida después de una emergencia.”",
-          options: ["Inteligencia Artificial", "Fuente Oficial"],
-          correct: 0,
-          explanation: "La IA puede ayudarte a organizar nombre, edad, último lugar donde fue vista, descripción y contacto en diferentes formatos. Nunca uses IA para modificar o inventar la apariencia de la persona: utiliza fotografía e información reales y verificadas."
+      (function () {
+        var questions = [
+          {
+            text: "“Quiero saber si mañana va a ocurrir otro terremoto.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 1,
+            explanation: "La IA no puede predecir cuándo ocurrirá un terremoto. Para información sísmica y comunicados debes consultar organismos oficiales."
+          },
+          {
+            text: "“Tengo un comunicado oficial sobre la emergencia, pero no entiendo algunas palabras.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 0,
+            explanation: "Puedes darle a la IA el comunicado ya verificado y pedirle que lo explique de forma sencilla, sin agregar información externa."
+          },
+          {
+            text: "“Necesitamos crear rápidamente una publicación para encontrar una mascota perdida.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 0,
+            explanation: "La IA puede ayudarte a organizar los datos, redactar el aviso y adaptarlo para Instagram o WhatsApp. Utiliza siempre fotografías y datos reales de la mascota."
+          },
+          {
+            text: "“Me llegó un audio de WhatsApp diciendo que viene una emergencia mucho peor.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 1,
+            explanation: "Antes de reenviar, verifica si existe información publicada por las autoridades correspondientes."
+          },
+          {
+            text: "“Necesito saber si actualmente hay una alerta meteorológica en mi ciudad.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 1,
+            explanation: "Las alertas vigentes deben comprobarse directamente con el organismo meteorológico o de gestión del riesgo correspondiente."
+          },
+          {
+            text: "“Tengo recomendaciones oficiales para una emergencia y quiero convertirlas en un checklist sencillo para mi familia.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 0,
+            explanation: "La IA puede reorganizar información oficial que tú le proporciones para hacerla más clara y práctica."
+          },
+          {
+            text: "“Vi una fotografía en redes que supuestamente muestra los daños de la emergencia y quiero saber si realmente corresponde a lo que está pasando.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 1,
+            explanation: "No deberías confiar únicamente en una IA para confirmar la autenticidad o contexto de una imagen. Busca publicaciones oficiales y medios confiables que permitan verificarla."
+          },
+          {
+            text: "“Necesitamos publicar rápidamente información sobre una persona desaparecida después de una emergencia.”",
+            options: ["Inteligencia Artificial", "Fuente Oficial"],
+            correct: 0,
+            explanation: "La IA puede ayudarte a organizar nombre, edad, último lugar donde fue vista, descripción y contacto en diferentes formatos. Nunca uses IA para modificar o inventar la apariencia de la persona: utiliza fotografía e información reales y verificadas."
+          }
+        ];
+
+        var current = 0, score = 0, answered = false;
+
+        var qTag = document.getElementById('sq5-qTag');
+        var scenarioText = document.getElementById('sq5-scenarioText');
+        var optionsWrap = document.getElementById('sq5-optionsWrap');
+        var explanationBox = document.getElementById('sq5-explanationBox');
+        var nextBtn = document.getElementById('sq5-nextBtn');
+        var progressFill = document.getElementById('sq5-progressFill');
+        var progressText = document.getElementById('sq5-progressText');
+        var scoreText = document.getElementById('sq5-scoreText');
+        var body = document.getElementById('sq5-body');
+        var resultsWrap = document.getElementById('sq5-resultsWrap');
+
+        function renderQuestion() {
+          answered = false;
+          var q = questions[current];
+          qTag.textContent = "Situación " + (current + 1);
+          scenarioText.textContent = q.text;
+          optionsWrap.innerHTML = "";
+          explanationBox.classList.remove('show');
+          explanationBox.innerHTML = "";
+          nextBtn.classList.remove('show');
+
+          q.options.forEach(function (optLabel, idx) {
+            var btn = document.createElement('button');
+            btn.className = 'sq5-opt';
+            btn.innerHTML = '<span class="sq5-opt-icon"></span><span>' + optLabel + '</span>';
+            btn.addEventListener('click', function () { selectAnswer(idx, btn); });
+            optionsWrap.appendChild(btn);
+          });
+
+          progressFill.style.width = ((current / questions.length) * 100 + (100 / questions.length)) + "%";
+          progressText.textContent = "Pregunta " + (current + 1) + " de " + questions.length;
+          scoreText.textContent = "Aciertos: " + score;
         }
-      ];
 
-      var current = 0, score = 0, answered = false;
+        function selectAnswer(idx) {
+          if (answered) return;
+          answered = true;
+          var q = questions[current];
+          var allBtns = optionsWrap.querySelectorAll('.sq5-opt');
 
-      var qTag = document.getElementById('sq6-qTag');
-      var scenarioText = document.getElementById('sq6-scenarioText');
-      var optionsWrap = document.getElementById('sq6-optionsWrap');
-      var explanationBox = document.getElementById('sq6-explanationBox');
-      var nextBtn = document.getElementById('sq6-nextBtn');
-      var progressFill = document.getElementById('sq6-progressFill');
-      var progressText = document.getElementById('sq6-progressText');
-      var scoreText = document.getElementById('sq6-scoreText');
-      var body = document.getElementById('sq6-body');
-      var resultsWrap = document.getElementById('sq6-resultsWrap');
+          allBtns.forEach(function (b, i) {
+            b.disabled = true;
+            var icon = b.querySelector('.sq5-opt-icon');
+            if (i === q.correct) {
+              b.classList.add('correct');
+              icon.textContent = '✓';
+            } else if (i === idx) {
+              b.classList.add('incorrect');
+              icon.textContent = '✕';
+            } else {
+              b.classList.add('dim');
+            }
+          });
 
-      function renderQuestion() {
-        answered = false;
-        var q = questions[current];
-        qTag.textContent = "Situación " + (current + 1);
-        scenarioText.textContent = q.text;
-        optionsWrap.innerHTML = "";
-        explanationBox.classList.remove('show');
-        explanationBox.innerHTML = "";
-        nextBtn.classList.remove('show');
+          if (idx === q.correct) score++;
 
-        q.options.forEach(function (optLabel, idx) {
-          var btn = document.createElement('button');
-          btn.className = 'sq6-opt';
-          btn.innerHTML = '<span class="sq6-opt-icon"></span><span>' + optLabel + '</span>';
-          btn.addEventListener('click', function () { selectAnswer(idx, btn); });
-          optionsWrap.appendChild(btn);
-        });
+          explanationBox.innerHTML = '<strong>' + (idx === q.correct ? '¡Correcto! ' : 'Ojo: ') + '</strong>' + q.explanation;
+          explanationBox.classList.add('show');
 
-        progressFill.style.width = ((current / questions.length) * 100 + (100 / questions.length)) + "%";
-        progressText.textContent = "Pregunta " + (current + 1) + " de " + questions.length;
-        scoreText.textContent = "Aciertos: " + score;
-      }
+          scoreText.textContent = "Aciertos: " + score;
+          nextBtn.classList.add('show');
+          nextBtn.textContent = current === questions.length - 1 ? 'Ver resultado →' : 'Siguiente →';
+        }
 
-      function selectAnswer(idx) {
-        if (answered) return;
-        answered = true;
-        var q = questions[current];
-        var allBtns = optionsWrap.querySelectorAll('.sq6-opt');
-
-        allBtns.forEach(function (b, i) {
-          b.disabled = true;
-          var icon = b.querySelector('.sq6-opt-icon');
-          if (i === q.correct) {
-            b.classList.add('correct');
-            icon.textContent = '✓';
-          } else if (i === idx) {
-            b.classList.add('incorrect');
-            icon.textContent = '✕';
+        nextBtn.addEventListener('click', function () {
+          current++;
+          if (current < questions.length) {
+            renderQuestion();
           } else {
-            b.classList.add('dim');
+            showResults();
           }
         });
 
-        if (idx === q.correct) score++;
+        function showResults() {
+          body.classList.add('hide');
+          resultsWrap.classList.add('show');
+          progressFill.style.width = "100%";
+          progressText.textContent = "Completado";
 
-        explanationBox.innerHTML = '<strong>' + (idx === q.correct ? '¡Correcto! ' : 'Ojo: ') + '</strong>' + q.explanation;
-        explanationBox.classList.add('show');
+          var pct = Math.round((score / questions.length) * 100);
+          document.getElementById('sq5-scoreRing').style.setProperty('--sq5-pct', pct);
+          document.getElementById('sq5-scoreRingText').textContent = score + "/" + questions.length;
 
-        scoreText.textContent = "Aciertos: " + score;
-        nextBtn.classList.add('show');
-        nextBtn.textContent = current === questions.length - 1 ? 'Ver resultado →' : 'Siguiente →';
-      }
+          var title, copy;
+          if (score === questions.length) {
+            title = "Criterio afinado ✨";
+            copy = "Distinguiste perfectamente cuándo apoyarte en la IA y cuándo confirmar con una fuente oficial. Ese instinto es justo lo que este episodio quería dejarte.";
+          } else if (score >= questions.length - 2) {
+            title = "Muy buen criterio";
+            copy = "Tienes clara la diferencia entre organizar información y confirmarla. Repasa las explicaciones de lo que se te escapó y quedará completamente afinado.";
+          } else {
+            title = "Buen punto de partida";
+            copy = "Todavía se mezclan un poco los momentos de usar IA y los de acudir a una fuente oficial. Vuelve a leer las explicaciones: ahí está la regla completa.";
+          }
+          document.getElementById('sq5-resultTitle').textContent = title;
+          document.getElementById('sq5-resultCopy').textContent = copy;
+        }
 
-      nextBtn.addEventListener('click', function () {
-        current++;
-        if (current < questions.length) {
+        document.getElementById('sq5-restartBtn').addEventListener('click', function () {
+          current = 0;
+          score = 0;
+          body.classList.remove('hide');
+          resultsWrap.classList.remove('show');
           renderQuestion();
-        } else {
-          showResults();
-        }
-      });
-
-      function showResults() {
-        body.classList.add('hide');
-        resultsWrap.classList.add('show');
-        progressFill.style.width = "100%";
-        progressText.textContent = "Completado";
-
-        var pct = Math.round((score / questions.length) * 100);
-        document.getElementById('sq6-scoreRing').style.setProperty('--sq6-pct', pct);
-        document.getElementById('sq6-scoreRingText').textContent = score + "/" + questions.length;
-
-        var title, copy;
-        if (score === questions.length) {
-          title = "Criterio afinado ✨";
-          copy = "Distinguiste perfectamente cuándo apoyarte en la IA y cuándo confirmar con una fuente oficial. Ese instinto es justo lo que este episodio quería dejarte.";
-        } else if (score >= questions.length - 2) {
-          title = "Muy buen criterio";
-          copy = "Tienes clara la diferencia entre organizar información y confirmarla. Repasa las explicaciones de lo que se te escapó y quedará completamente afinado.";
-        } else {
-          title = "Buen punto de partida";
-          copy = "Todavía se mezclan un poco los momentos de usar IA y los de acudir a una fuente oficial. Vuelve a leer las explicaciones: ahí está la regla completa.";
-        }
-        document.getElementById('sq6-resultTitle').textContent = title;
-        document.getElementById('sq6-resultCopy').textContent = copy;
-      }
-
-      document.getElementById('sq6-restartBtn').addEventListener('click', function () {
-        current = 0;
-        score = 0;
-        body.classList.remove('hide');
-        resultsWrap.classList.remove('show');
-        renderQuestion();
-      });
-
-      renderQuestion();
-    })();
-
-    /* Lógica del Menú de Temporadas y Scroll Top */
-    document.addEventListener("DOMContentLoaded", () => {
-
-      /* --- Menú de Temporadas --- */
-      const tabs = document.querySelectorAll('.season-tab');
-      const seasons = document.querySelectorAll('.season');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          seasons.forEach(s => s.classList.remove('active-season'));
-
-          tab.classList.add('active');
-          const targetId = tab.getAttribute('data-target');
-          const targetSeason = document.getElementById(targetId);
-
-          if (targetSeason) {
-            targetSeason.classList.add('active-season');
-          }
         });
-      });
 
-      /* --- Botón Volver Arriba --- */
-      const scrollTopBtn = document.getElementById('scrollTopBtn');
+        renderQuestion();
+      })();
 
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-          scrollTopBtn.classList.add('show');
-        } else {
-          scrollTopBtn.classList.remove('show');
-        }
-      });
+      /* Lógica del Menú de Temporadas y Scroll Top */
+      document.addEventListener("DOMContentLoaded", () => {
 
-      if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', () => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        /* --- Menú de Temporadas --- */
+        const tabs = document.querySelectorAll('.season-tab');
+        const seasons = document.querySelectorAll('.season');
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            seasons.forEach(s => s.classList.remove('active-season'));
+
+            tab.classList.add('active');
+            const targetId = tab.getAttribute('data-target');
+            const targetSeason = document.getElementById(targetId);
+
+            if (targetSeason) {
+              targetSeason.classList.add('active-season');
+            }
           });
         });
-      }
 
-    });
+        /* --- Botón Volver Arriba --- */
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-     /* Inicialización Episodio 6
-      
-      new CableMatchingGame({
-        containerId: "game-container-e6",
-        episodeId: "T1E6",
-        pairs: [
-          { id: 1, q: "Expediente judicial con pruebas y doctrina", a: "Ancla la respuesta en tus fuentes", ai: "Gemini" },
-          { id: 2, q: "Estrategia y diseño de página web personal", a: "Piensa la idea desde cero", ai: "Claude" },
-          { id: 3, q: "Biblioteca personal con múltiples fuentes", a: "Conecta y organiza documentos", ai: "Gemini" },
-          { id: 4, q: "Profundizar un proyecto creativo y complejo", a: "Acompaña con visión propia", ai: "Claude" }
-        ]
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('show');
+          } else {
+            scrollTopBtn.classList.remove('show');
+          }
+        });
+
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
+
       });
-      */
+
+      /* Inicialización Episodio 6
+       
+       new CableMatchingGame({
+         containerId: "game-container-e6",
+         episodeId: "T1E6",
+         pairs: [
+           { id: 1, q: "Expediente judicial con pruebas y doctrina", a: "Ancla la respuesta en tus fuentes", ai: "Gemini" },
+           { id: 2, q: "Estrategia y diseño de página web personal", a: "Piensa la idea desde cero", ai: "Claude" },
+           { id: 3, q: "Biblioteca personal con múltiples fuentes", a: "Conecta y organiza documentos", ai: "Gemini" },
+           { id: 4, q: "Profundizar un proyecto creativo y complejo", a: "Acompaña con visión propia", ai: "Claude" }
+         ]
+       });
+       */
     });
-    
+
   </script>
-<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">↑</button>
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">↑</button>
 </body>
 
 </html>

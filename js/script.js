@@ -205,20 +205,20 @@ function renderPregunta() {
     <p class="q-num">Pregunta ${qActual + 1}</p>
     <p class="q-text">${q.texto}</p>
     <div class="opciones">`;
-  
+
   const letras = ["A", "B", "C", "D"];
-  
+
   q.opciones.forEach((op, i) => {
     const isSel = sel === i ? " selected" : "";
     // Calculamos el delay: 0.1s para la A, 0.2s para la B, etc.
-    const delayS = (i + 1) * 0.12; 
-    
+    const delayS = (i + 1) * 0.12;
+
     html += `<button class="opcion${isSel}" style="--delay: ${delayS}s;" onclick="seleccionar(${i})">
       <span class="opcion-letter">${letras[i]}</span>
       <span class="opcion-text">${op.texto}</span>
     </button>`;
   });
-  
+
   html += `</div>
     <div class="q-nav">
       ${qActual > 0 ? `<button class="btn secondary" onclick="anterior()">← Anterior</button>` : ""}
@@ -226,18 +226,18 @@ function renderPregunta() {
         ${sel !== null ? "✦ Cargando siguiente…" : "Selecciona una opción para continuar"}
       </p>
     </div>`;
-    
+
   document.getElementById("q-container").innerHTML = html;
 }
 
 function seleccionar(i) {
   respuestas[qActual] = i;
-  
+
   const botones = document.querySelectorAll(".opciones .opcion");
-  
+
   botones.forEach((btn, index) => {
-    btn.style.animation = "none"; 
-    
+    btn.style.animation = "none";
+
     if (index === i) {
       btn.classList.add("selected");
     } else {
@@ -248,29 +248,29 @@ function seleccionar(i) {
   setTimeout(() => {
     const container = document.getElementById("q-container");
     if (container) container.classList.add("anim-salir");
-    
+
     setTimeout(() => {
       siguiente();
-    }, 250); 
-  }, 1000); 
+    }, 250);
+  }, 1000);
 }
 
 function siguiente() {
   if (respuestas[qActual] === undefined) return;
-  
+
   if (qActual < preguntas.length - 1) {
     qActual++;
-    
+
     renderPregunta();
     window.scrollTo({ top: 0, behavior: "smooth" });
-    
+
     const container = document.getElementById("q-container");
     if (container) {
       container.classList.remove("anim-salir");
       container.classList.add("anim-entrar");
-      
-      container.offsetHeight; 
-      
+
+      container.offsetHeight;
+
       container.classList.remove("anim-entrar");
     }
   } else {
@@ -595,16 +595,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // ──────────────────────────────────────────────
 
 // Toggle Episode Func
-function toggleEpisode(btn){
+function toggleEpisode(btn) {
   const item = btn.closest('.episode-item');
-  if(item.classList.contains('disabled')) return;
+  if (item.classList.contains('disabled')) return;
   const wasOpen = item.classList.contains('open');
   item.closest('.episode-list').querySelectorAll('.episode-item.open').forEach(el => el.classList.remove('open'));
-  if(!wasOpen) item.classList.add('open');
+  if (!wasOpen) item.classList.add('open');
 }
 
 // Copy Prompt Func
-function copyPrompt(id, btn){
+function copyPrompt(id, btn) {
   const text = document.getElementById(id).innerText;
   navigator.clipboard.writeText(text).then(() => {
     const original = btn.textContent;
@@ -645,7 +645,7 @@ function checkEpisodeLocks() {
     if (now >= releaseDate) {
       // YA SE CUMPLIÓ O SOBREPASÓ LA FECHA -> Desbloquear
       ep.classList.remove('locked');
-      
+
       if (badge) {
         badge.textContent = '⌄';
         badge.style.color = '#2d2d2d';

@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-  /* Deshabilitar Click Derecho en Imagenes */
+/* Deshabilitar Click Derecho en Imagenes */
 document.addEventListener('DOMContentLoaded', () => {
   const imagenes = document.querySelectorAll('img');
   imagenes.forEach(img => {

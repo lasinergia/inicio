@@ -1,23 +1,27 @@
 /* ===== SINERG.ia — Linktree ===== */
 
-:root{
+:root {
   --purple: #665A9C;
-  --lilac:  #928AC2;
-  --pink:   #F7C4E9;
-  --blush:  #FBDAD2;
-  --dark:   #2D2D2D;
-  --cream:  #FBF8F5;
+  --lilac: #928AC2;
+  --pink: #F7C4E9;
+  --blush: #FBDAD2;
+  --dark: #2D2D2D;
+  --cream: #FBF8F5;
 
   --serif: "Source Serif 4", Georgia, serif;
-  --sans:  "Source Sans 3", "Source Sans Pro", -apple-system, sans-serif;
+  --sans: "Source Sans 3", "Source Sans Pro", -apple-system, sans-serif;
   --script: "Dancing Script", cursive;
 }
 
-*{ box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html{ scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
-body{
+body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--sans);
@@ -32,32 +36,74 @@ body{
 }
 
 /* subtle drifting sparkle field */
-.bg-field{
+.bg-field {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
 }
-.drift{
+
+.drift {
   position: absolute;
   color: var(--purple);
   opacity: .14;
   font-size: 28px;
   animation: drift 14s ease-in-out infinite;
 }
-.d1{ top: 8%;  left: 10%; font-size: 20px; animation-duration: 12s; }
-.d2{ top: 22%; left: 82%; font-size: 34px; animation-duration: 16s; animation-delay: -3s; }
-.d3{ top: 60%; left: 6%;  font-size: 24px; animation-duration: 15s; animation-delay: -6s; }
-.d4{ top: 74%; left: 88%; font-size: 18px; animation-duration: 11s; animation-delay: -2s; }
-.d5{ top: 42%; left: 92%; font-size: 22px; animation-duration: 18s; animation-delay: -8s; }
 
-@keyframes drift{
-  0%,100%{ transform: translateY(0) rotate(0deg); }
-  50%{ transform: translateY(-18px) rotate(14deg); }
+.d1 {
+  top: 8%;
+  left: 10%;
+  font-size: 20px;
+  animation-duration: 12s;
 }
 
-.page{
+.d2 {
+  top: 22%;
+  left: 82%;
+  font-size: 34px;
+  animation-duration: 16s;
+  animation-delay: -3s;
+}
+
+.d3 {
+  top: 60%;
+  left: 6%;
+  font-size: 24px;
+  animation-duration: 15s;
+  animation-delay: -6s;
+}
+
+.d4 {
+  top: 74%;
+  left: 88%;
+  font-size: 18px;
+  animation-duration: 11s;
+  animation-delay: -2s;
+}
+
+.d5 {
+  top: 42%;
+  left: 92%;
+  font-size: 22px;
+  animation-duration: 18s;
+  animation-delay: -8s;
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(14deg);
+  }
+}
+
+.page {
   position: relative;
   z-index: 1;
   max-width: 460px;
@@ -69,12 +115,12 @@ body{
 }
 
 /* ---------- Hero ---------- */
-.hero{
+.hero {
   text-align: center;
   margin-bottom: 8px;
 }
 
-.wordmark{
+.wordmark {
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(1.9rem, 8vw, 2.4rem);
@@ -82,19 +128,21 @@ body{
   margin: 0;
   color: var(--dark);
 }
-.mark-glyph{
+
+.mark-glyph {
   color: var(--purple);
   font-size: 0.75em;
   vertical-align: 0.08em;
   display: inline-block;
 }
-.wordmark .dot{
+
+.wordmark .dot {
   color: var(--purple);
   font-style: italic;
   font-weight: 500;
 }
 
-.tagline{
+.tagline {
   font-family: var(--script);
   font-weight: 700;
   font-size: 1.4rem;
@@ -102,7 +150,7 @@ body{
   margin: 6px 0 0;
 }
 
-.eyebrow{
+.eyebrow {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -111,7 +159,7 @@ body{
   margin: 10px 0 0;
 }
 
-.cta-row{
+.cta-row {
   display: flex;
   gap: 10px;
   margin-top: 18px;
@@ -119,7 +167,7 @@ body{
   justify-content: center;
 }
 
-.cta{
+.cta {
   font-family: var(--sans);
   font-weight: 600;
   font-size: 0.88rem;
@@ -128,26 +176,30 @@ body{
   border-radius: 999px;
   transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
 }
-.cta-primary{
+
+.cta-primary {
   background: var(--purple);
   color: var(--cream);
-  box-shadow: 0 8px 18px rgba(102,90,156,.3);
+  box-shadow: 0 8px 18px rgba(102, 90, 156, .3);
 }
-.cta-primary:hover{
+
+.cta-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(102,90,156,.38);
+  box-shadow: 0 10px 22px rgba(102, 90, 156, .38);
 }
-.cta-secondary{
+
+.cta-secondary {
   background: transparent;
   color: var(--purple);
   border: 1.4px solid var(--purple);
 }
-.cta-secondary:hover{
-  background: rgba(102,90,156,.08);
+
+.cta-secondary:hover {
+  background: rgba(102, 90, 156, .08);
   transform: translateY(-2px);
 }
 
-.section-eyebrow{
+.section-eyebrow {
   width: 100%;
   text-align: center;
   font-size: 0.72rem;
@@ -157,42 +209,48 @@ body{
   color: var(--purple);
   margin: 0 0 4px;
 }
-.links-eyebrow{
+
+.links-eyebrow {
   margin: 6px 0 10px;
 }
-.links-eyebrow--top{
+
+.links-eyebrow--top {
   margin-top: 26px;
 }
 
 /* ---------- Links ---------- */
-.links{
+.links {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.link-row{
+.link-row {
   display: flex;
   align-items: center;
   gap: 14px;
   text-decoration: none;
   color: var(--dark);
-  background: rgba(255,255,255,.6);
-  border: 1px solid rgba(102,90,156,.18);
+  background: rgba(255, 255, 255, .6);
+  border: 1px solid rgba(102, 90, 156, .18);
   border-radius: 16px;
   padding: 13px 16px;
   transition: transform .16s ease, box-shadow .16s ease, background .16s ease, border-color .16s ease;
 }
-.link-row:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.9);
-  border-color: var(--purple);
-  box-shadow: 0 10px 22px rgba(102,90,156,.18);
-}
-.link-row:active{ transform: translateY(0); }
 
-.link-icon{
+.link-row:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, .9);
+  border-color: var(--purple);
+  box-shadow: 0 10px 22px rgba(102, 90, 156, .18);
+}
+
+.link-row:active {
+  transform: translateY(0);
+}
+
+.link-icon {
   flex: 0 0 auto;
   width: 40px;
   height: 40px;
@@ -205,36 +263,41 @@ body{
   line-height: 1;
 }
 
-.link-row--site .link-icon{ background: linear-gradient(155deg, var(--lilac), var(--purple)); }
+.link-row--site .link-icon {
+  background: linear-gradient(155deg, var(--lilac), var(--purple));
+}
 
-.link-text{
+.link-text {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 1px;
   min-width: 0;
 }
-.link-title{
+
+.link-title {
   font-weight: 700;
   font-size: 0.98rem;
 }
-.link-sub{
+
+.link-sub {
   font-size: 0.8rem;
   color: #6b6470;
 }
 
-.link-go{
+.link-go {
   flex: 0 0 auto;
   font-size: 1.1rem;
   color: var(--purple);
   transition: transform .16s ease;
 }
-.link-row:hover .link-go{
+
+.link-row:hover .link-go {
   transform: translate(2px, -2px);
 }
 
 /* ---------- Secondary site nav ---------- */
-.site-nav{
+.site-nav {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -242,47 +305,75 @@ body{
   flex-wrap: wrap;
   margin-top: 26px;
   padding-top: 20px;
-  border-top: 1px solid rgba(102,90,156,.16);
+  border-top: 1px solid rgba(102, 90, 156, .16);
 }
-.site-nav a{
+
+.site-nav a {
   font-size: 0.8rem;
   font-weight: 600;
   color: #6b6470;
   text-decoration: none;
   letter-spacing: 0.01em;
 }
-.site-nav a:hover{ color: var(--purple); }
+
+.site-nav a:hover {
+  color: var(--purple);
+}
 
 /* ---------- Footer ---------- */
-.foot{
+.foot {
   margin-top: 22px;
   text-align: center;
   color: #756f7c;
   font-size: 0.8rem;
   line-height: 1.6;
 }
-.foot p{ margin: 0; }
-.foot-mark{
+
+.foot p {
+  margin: 0;
+}
+
+.foot-mark {
   font-family: var(--serif);
   font-size: 1rem;
   font-weight: 600;
   color: var(--dark);
 }
-.foot-mark .mark-glyph{ font-size: 0.85em; }
-.foot-mark .dot{ color: var(--purple); font-style: italic; }
-.foot-mail{ color: var(--purple); font-weight: 600; margin-top: 4px; }
+
+.foot-mark .mark-glyph {
+  font-size: 0.85em;
+}
+
+.foot-mark .dot {
+  color: var(--purple);
+  font-style: italic;
+}
+
+.foot-mail {
+  color: var(--purple);
+  font-weight: 600;
+  margin-top: 4px;
+}
 
 /* ---------- Accessibility & motion ---------- */
-:focus-visible{
+:focus-visible {
   outline: 2px solid var(--purple);
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce){
-  .drift{ animation: none; }
-  .link-row, .link-go{ transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .drift {
+    animation: none;
+  }
+
+  .link-row,
+  .link-go {
+    transition: none;
+  }
 }
 
-@media (max-width: 340px){
-  .wordmark{ font-size: 1.8rem; }
+@media (max-width: 340px) {
+  .wordmark {
+    font-size: 1.8rem;
+  }
 }

@@ -18,12 +18,12 @@ fetch(`https://api.github.com/repos/${usuario}/${repositorio}/commits/${rama}`)
 
 
 window.addEventListener('keydown', (e) => {
-  if (e.key.length !== 1) return; 
+  if (e.key.length !== 1) return;
 
   secuenciaEscrita += e.key;
 
   if (codigoSecreto.startsWith(secuenciaEscrita)) {
-    
+
     if (secuenciaEscrita === codigoSecreto) {
       abrirPopupCommit();
       secuenciaEscrita = '';

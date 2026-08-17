@@ -4,7 +4,7 @@ class CableMatchingGame {
   constructor(config) {
     this.episodeId = config.episodeId || "T1E4";
     this.pairs = config.pairs || [];
-    
+
     // Asignar el contenedor específico de este juego
     this.container = document.getElementById(config.containerId) || document;
 
@@ -28,7 +28,7 @@ class CableMatchingGame {
     this.regScreen = this.container.querySelector(".reg-screen");
     this.gameScreen = this.container.querySelector(".game-screen");
     this.regForm = this.container.querySelector(".reg-form");
-    
+
     this.boardEl = this.container.querySelector(".cable-board");
     this.svgEl = this.container.querySelector(".cable-svg-layer");
     this.tempCable = this.container.querySelector(".temp-cable");
@@ -72,7 +72,7 @@ class CableMatchingGame {
     if (!nombre || !pais) return;
 
     this.userData = { nombre, pais, correo: correo || "No especificado" };
-    
+
     const playerDisplay = this.container.querySelector(".player-display");
     if (playerDisplay) playerDisplay.textContent = nombre;
 
@@ -194,7 +194,7 @@ class CableMatchingGame {
       if (this.selectedQCard) {
         this.selectedQCard.classList.remove("selected");
       }
-      
+
       if (this.selectedQCard === this.activeDragQuestionCard) {
         this.selectedQCard = null;
       } else {
@@ -374,12 +374,12 @@ class CableMatchingGame {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     })
-    .then(() => {
-      if (statusText) statusText.textContent = "¡Resultados guardados correctamente!";
-    })
-    .catch(() => {
-      if (statusText) statusText.textContent = "¡Juego completado!";
-    });
+      .then(() => {
+        if (statusText) statusText.textContent = "¡Resultados guardados correctamente!";
+      })
+      .catch(() => {
+        if (statusText) statusText.textContent = "¡Juego completado!";
+      });
   }
 
   restartGame() {
