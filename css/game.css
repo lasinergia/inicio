@@ -550,12 +550,8 @@
 
   .cable-card {
     font-size: 0.75rem;
-    padding: 8px 6px;
+    padding: 0;
     min-height: 65px;
-  }
-
-  .cable-column {
-    width: 90%;
   }
 }
 
