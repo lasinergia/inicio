@@ -537,6 +537,10 @@
   .col-answers .port-dot {
     left: -16px;
   }
+
+  .cable-column {
+    width: 90%;
+  }
 }
 
 @media (max-width: 380px) {
@@ -548,6 +552,10 @@
     font-size: 0.75rem;
     padding: 8px 6px;
     min-height: 65px;
+  }
+
+  .cable-column {
+    width: 90%;
   }
 }
 
