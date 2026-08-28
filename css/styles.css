@@ -1266,3 +1266,38 @@ img {
     /* Evita que los botones se achiquen */
   }
 }
+
+/* =========================================
+   Botón Scroll to Top Global
+========================================= */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 6vw;
+  width: 45px;
+  height: 45px;
+  background: var(--purple);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(102, 90, 156, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  z-index: 1000; /* Aumentado a 1000 para que nada lo tape */
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: var(--lilac);
+  transform: translateY(-3px);
+}

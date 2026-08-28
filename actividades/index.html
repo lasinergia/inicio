@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/css/actividades.css">
   <link rel="stylesheet" href="/css/assets.css">
   <link rel="stylesheet" href="/css/game.css">
+  <link rel="stylesheet" href="/css/ep7style.css">
 </head>
 
 <body>
@@ -403,7 +404,7 @@
             <div class="episode-body">
               <div class="episode-inner">
                 <span class="activity-label">Actividad práctica</span>
-                
+
                 <div class="episode-game-wrapper" id="game-container-e6">
 
                   <div class="cable-screen reg-screen">
@@ -460,7 +461,8 @@
                       <p class="sheets-status-text">Guardando tus resultados...</p>
 
                       <div class="modal-score-grid">
-                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score" style="color: #9333ea">0
+                        <div class="score-box"><span>Puntaje Final</span><strong class="purple-text final-score"
+                            style="color: #9333ea">0
                             PTS</strong></div>
                         <div class="score-box"><span>Precisión</span><strong class="final-accuracy">0%</strong></div>
                         <div class="score-box"><span>Tiempo</span><strong class="final-time">00:00</strong></div>
@@ -472,6 +474,125 @@
                   </div>
 
                 </div>
+          </li>
+
+          <!-- Episodio T1E7 -->
+          <li class="episode-item" data-release="2026-08-28T17:00:00-03:00">
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <div class="ep-header-info">
+                <div class="ep-title-row">
+                  <span class="ep-num">Episodio 7</span>
+                </div>
+                <div>
+                  <span class="ep-name">¿Quién creó qué? — El jurado creativo</span>
+                </div>
+                <div class="release-subtitle">
+                  Se desbloquea el <span class="release-date-text">...</span>
+                </div>
+              </div>
+              <span class="chev badge-status">...</span>
+            </button>
+
+            <div class="episode-body">
+              <div class="episode-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <ol class="step-list">
+                  <li><strong>Lee el caso:</strong> Te mostraremos 8 escenarios donde la IA participó en la generación
+                    de una idea, imagen o texto.</li>
+                  <li><strong>Analiza el proceso:</strong> Revisa la situación inicial y el prompt que se utilizó.
+                  </li>
+                  <li><strong>Toma tu decisión:</strong> Vota dónde crees que estuvo realmente el aporte humano en
+                    cada caso.</li>
+                  <li><strong>Descubre tu resultado:</strong> Al finalizar, verás qué tan afinado está tu criterio
+                    como jurado creativo.</li>
+                </ol>
+
+
+                <!-- INICIO DEL JUEGO: ¿QUIÉN CREÓ QUÉ? -->
+                <div class="stage stage--embedded">
+
+                  <!-- INTRO -->
+                  <section class="screen screen--intro is-active" id="screen-intro">
+                    <div class="diamond-field" aria-hidden="true">
+                      <span class="drift d1">◆</span>
+                      <span class="drift d2">✦</span>
+                      <span class="drift d3">◆</span>
+                      <span class="drift d4">✦</span>
+                    </div>
+                    <p class="eyebrow">Episodio 07 · SINERG.ia</p>
+                    <h1 class="intro-title">¿Quién creó<br>qué?</h1>
+                    <p class="intro-lede">Tú eres el jurado creativo.</p>
+                    <p class="intro-body">
+                      La IA puede generar una imagen, escribir un texto o transformar una idea.
+                      Pero la pregunta importante es otra: <em>¿dónde estuvo realmente el aporte humano?</em>
+                    </p>
+                    <p class="intro-body intro-body--tight">
+                      Te mostraremos 8 casos. Analiza el proceso, toma una decisión y descubre
+                      qué tan fácil —o difícil— es determinar quién creó qué.
+                    </p>
+                    <button class="btn btn--primary" id="btn-start">Empezar el caso</button>
+                  </section>
+
+                  <!-- QUIZ -->
+                  <section class="screen screen--quiz" id="screen-quiz">
+                    <div class="progress" id="progress" aria-hidden="true"></div>
+
+                    <div class="case-card">
+                      <p class="case-label" id="case-label">Caso 01</p>
+                      <h2 class="case-title" id="case-title"></h2>
+                      <div class="case-scenario" id="case-scenario"></div>
+                      <p class="case-prompt" id="case-prompt"></p>
+                      <div class="options" id="options"></div>
+
+                      <div class="verdict" id="verdict">
+                        <div class="verdict-seal" aria-hidden="true">
+                          <span class="verdict-seal-mark">◆</span>
+                        </div>
+                        <p class="verdict-kicker">Veredicto</p>
+                        <div class="verdict-text" id="verdict-text"></div>
+                        <p class="verdict-note" id="verdict-note"></p>
+                        <button class="btn btn--primary" id="btn-next">Siguiente caso →</button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- RESULT -->
+                  <section class="screen screen--result" id="screen-result">
+                    <div class="diamond-field" aria-hidden="true">
+                      <span class="drift d1">✦</span>
+                      <span class="drift d2">◆</span>
+                    </div>
+                    <p class="eyebrow">Tu resultado</p>
+                    <p class="result-emoji" id="result-emoji"></p>
+                    <h2 class="result-title" id="result-title"></h2>
+                    <p class="result-score" id="result-score"></p>
+                    <div class="result-body" id="result-body"></div>
+
+                    <div class="insight">
+                      <p class="insight-kicker">Insight SINERG.ia ✦</p>
+                      <p class="insight-text">
+                        Una inteligencia artificial puede participar en una creación. Puede generar.
+                        Puede sugerir. Puede transformar. Puede incluso dejar señales de que estuvo ahí.
+                      </p>
+                      <p class="insight-text">
+                        Pero ninguna de esas cosas responde por sí sola: quién tuvo la idea, quién tomó
+                        las decisiones, quién transformó el resultado y dónde estuvo realmente el aporte humano.
+                      </p>
+                      <p class="insight-signature">La IA no nos reemplaza. Nos potencia.</p>
+                    </div>
+
+                    <div class="result-actions">
+                      <button class="btn btn--primary" id="btn-share">Compartir mi resultado</button>
+                      <button class="btn btn--ghost" id="btn-restart">Repetir el cuestionario</button>
+                    </div>
+                  </section>
+
+                </div>
+                <!-- FIN DEL JUEGO -->
+
+              </div>
+            </div>
           </li>
           <!-- ========== fin Temporada 1 ========== -->
 
@@ -489,7 +610,7 @@
         <span class="season-sub">Próximamente</span>
       </div>
     </div>
-            
+
   </main>
 
   <footer>
@@ -722,21 +843,23 @@
       });
 
       /* Inicialización Episodio 6 */
-       
-       new CableMatchingGame({
-         containerId: "game-container-e6",
-         episodeId: "T1E6",
-         pairs: [
-           { id: 1, q: "Expediente judicial con pruebas y doctrina", a: "Ancla la respuesta en tus fuentes", ai: "Gemini Notebook" },
-           { id: 2, q: "Estrategia y diseño de página web personal", a: "Piensa la idea desde cero", ai: "Claude" },
-           { id: 3, q: "Biblioteca personal con múltiples fuentes", a: "Conecta y organiza documentos", ai: "Gemini Notebook" },
-           { id: 4, q: "Profundizar un proyecto creativo y complejo", a: "Acompaña con visión propia", ai: "Claude" }
-         ]
-       });
+
+      new CableMatchingGame({
+        containerId: "game-container-e6",
+        episodeId: "T1E6",
+        pairs: [
+          { id: 1, q: "Expediente judicial con pruebas y doctrina", a: "Ancla la respuesta en tus fuentes", ai: "Gemini Notebook" },
+          { id: 2, q: "Estrategia y diseño de página web personal", a: "Piensa la idea desde cero", ai: "Claude" },
+          { id: 3, q: "Biblioteca personal con múltiples fuentes", a: "Conecta y organiza documentos", ai: "Gemini Notebook" },
+          { id: 4, q: "Profundizar un proyecto creativo y complejo", a: "Acompaña con visión propia", ai: "Claude" }
+        ]
+      });
     });
 
   </script>
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">↑</button>
+  <script src="/js/script.js"></script>
+  <script src="/js/ep7script.js"></script>
 </body>
 
 </html>

@@ -45,7 +45,6 @@ em{ font-style: italic; color: var(--purple-deep); }
    Stage / screens
    ============================================ */
 .stage{
-  max-width: 640px;
   margin: 0 auto;
   padding: 48px 24px 72px;
   min-height: 100vh;

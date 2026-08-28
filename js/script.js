@@ -683,4 +683,26 @@ function checkEpisodeLocks() {
   });
 }
 
-// ...
+document.addEventListener("DOMContentLoaded", () => {
+  /* --- Botón Volver Arriba Global --- */
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  if (scrollTopBtn) {
+    // Mostrar u ocultar el botón dependiendo del scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    // Volver arriba de forma suave al hacer clic
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+});
