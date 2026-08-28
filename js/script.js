@@ -157,8 +157,11 @@ let nombreUsuario = "";
 // ──────────────────────────────────────────────
 function irA(id) {
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const targetScreen = document.getElementById(id);
+  targetScreen.classList.add("active");
+  
+  // Hace scroll suave solo hacia el contenedor del quiz, sin ir al techo
+  targetScreen.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbwjpjie-ig1fRr3Z6UHc3wwIJEzWRMjzPeUaAf-EVmJWdCG_waYTcd56N9YWqn-rftL/exec";
@@ -262,10 +265,12 @@ function siguiente() {
     qActual++;
 
     renderPregunta();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
+    
     const container = document.getElementById("q-container");
     if (container) {
+      // Hace scroll suave hacia la pregunta en lugar de subir al techo
+      container.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      
       container.classList.remove("anim-salir");
       container.classList.add("anim-entrar");
 
@@ -279,7 +284,16 @@ function siguiente() {
 }
 
 function anterior() {
-  if (qActual > 0) { qActual--; renderPregunta(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  if (qActual > 0) { 
+    qActual--; 
+    renderPregunta(); 
+    
+    const container = document.getElementById("q-container");
+    if (container) {
+      // Hace scroll suave hacia la pregunta anterior
+      container.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
 }
 
 // ──────────────────────────────────────────────

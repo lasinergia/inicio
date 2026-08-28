@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quién creó qué? — SINERG.ia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,500&family=Source+Sans+Pro:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- INTRO -->
+  <section class="screen screen--intro is-active" id="screen-intro">
+    <div class="diamond-field" aria-hidden="true">
+      <span class="drift d1">◆</span>
+      <span class="drift d2">✦</span>
+      <span class="drift d3">◆</span>
+      <span class="drift d4">✦</span>
+    </div>
+    <p class="eyebrow">Episodio 07 · SINERG.ia</p>
+    <h1 class="intro-title">¿Quién creó<br>qué?</h1>
+    <p class="intro-lede">Tú eres el jurado creativo.</p>
+    <p class="intro-body">
+      La IA puede generar una imagen, escribir un texto o transformar una idea.
+      Pero la pregunta importante es otra: <em>¿dónde estuvo realmente el aporte humano?</em>
+    </p>
+    <p class="intro-body intro-body--tight">
+      Te mostraremos 8 casos. Analiza el proceso, toma una decisión y descubre
+      qué tan fácil —o difícil— es determinar quién creó qué.
+    </p>
+    <button class="btn btn--primary" id="btn-start">Empezar el caso</button>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="screen screen--quiz" id="screen-quiz">
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <div class="case-card">
+      <p class="case-label" id="case-label">Caso 01</p>
+      <h2 class="case-title" id="case-title"></h2>
+
+      <div class="case-scenario" id="case-scenario"></div>
+
+      <p class="case-prompt" id="case-prompt"></p>
+
+      <div class="options" id="options"></div>
+
+      <div class="verdict" id="verdict">
+        <div class="verdict-seal" aria-hidden="true">
+          <span class="verdict-seal-mark">◆</span>
+        </div>
+        <p class="verdict-kicker">Veredicto</p>
+        <div class="verdict-text" id="verdict-text"></div>
+        <p class="verdict-note" id="verdict-note"></p>
+        <button class="btn btn--primary" id="btn-next">Siguiente caso →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen screen--result" id="screen-result">
+    <div class="diamond-field" aria-hidden="true">
+      <span class="drift d1">✦</span>
+      <span class="drift d2">◆</span>
+    </div>
+    <p class="eyebrow">Tu resultado</p>
+    <p class="result-emoji" id="result-emoji"></p>
+    <h2 class="result-title" id="result-title"></h2>
+    <p class="result-score" id="result-score"></p>
+    <div class="result-body" id="result-body"></div>
+
+    <div class="insight">
+      <p class="insight-kicker">Insight SINERG.ia ✦</p>
+      <p class="insight-text">
+        Una inteligencia artificial puede participar en una creación. Puede generar.
+        Puede sugerir. Puede transformar. Puede incluso dejar señales de que estuvo ahí.
+      </p>
+      <p class="insight-text">
+        Pero ninguna de esas cosas responde por sí sola: quién tuvo la idea, quién tomó
+        las decisiones, quién transformó el resultado y dónde estuvo realmente el aporte humano.
+      </p>
+      <p class="insight-signature">La IA no nos reemplaza. Nos potencia.</p>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn btn--primary" id="btn-share">Compartir mi resultado</button>
+      <button class="btn btn--ghost" id="btn-restart">Repetir el cuestionario</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
