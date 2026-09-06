@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/css/assets.css">
   <link rel="stylesheet" href="/css/game.css">
   <link rel="stylesheet" href="/css/ep7style.css">
+  <link rel="stylesheet" href="/css/ep8style.css">
 </head>
 
 <body>
@@ -51,7 +52,7 @@
       <div class="season active-season" id="season-1">
         <div class="season-head">
           <h2 class="season-title">Temporada 1</h2>
-          <span class="season-sub">5 episodios</span>
+          <span class="season-sub">8 episodios</span>
         </div>
 
         <!-- ============ TEMPORADA 1 ============ -->
@@ -490,126 +491,226 @@
           </li>
 
           <!-- Episodio T1E7 -->
-            <li class="episode-item" data-release="2026-08-20T17:00:00-03:00">
-              <button class="episode-toggle" onclick="toggleEpisode(this)">
-                <div class="ep-header-info">
-                  <div class="ep-title-row">
-                    <span class="ep-num">Episodio 7</span>
-                  </div>
-                  <div>
-                    <span class="ep-name">¿Quién creó qué? — El jurado creativo</span>
-                  </div>
-                  <div class="release-subtitle">
-                    Se desbloquea el <span class="release-date-text">...</span>
-                  </div>
+          <li class="episode-item" data-release="2026-08-20T17:00:00-03:00">
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <div class="ep-header-info">
+                <div class="ep-title-row">
+                  <span class="ep-num">Episodio 7</span>
                 </div>
-                <span class="chev badge-status">...</span>
-              </button>
-
-              <div class="episode-body">
-                <div class="episode-inner">
-                  <span class="activity-label">Actividad práctica</span>
-
-                  <ol class="step-list">
-                    <li><strong>Lee el caso:</strong> Te mostraremos 8 escenarios donde la IA participó en la generación
-                      de una idea, imagen o texto.</li>
-                    <li><strong>Analiza el proceso:</strong> Revisa la situación inicial y el prompt que se utilizó.
-                    </li>
-                    <li><strong>Toma tu decisión:</strong> Vota dónde crees que estuvo realmente el aporte humano en
-                      cada caso.</li>
-                    <li><strong>Descubre tu resultado:</strong> Al finalizar, verás qué tan afinado está tu criterio
-                      como jurado creativo.</li>
-                  </ol>
-
-
-                    <!-- INICIO DEL JUEGO: ¿QUIÉN CREÓ QUÉ? -->
-                    <div class="stage stage--embedded">
-
-                      <!-- INTRO -->
-                      <section class="screen screen--intro is-active" id="screen-intro">
-                        <div class="diamond-field" aria-hidden="true">
-                          <span class="drift d1">◆</span>
-                          <span class="drift d2">✦</span>
-                          <span class="drift d3">◆</span>
-                          <span class="drift d4">✦</span>
-                        </div>
-                        <p class="eyebrow">Episodio 07 · SINERG.ia</p>
-                        <h1 class="intro-title">¿Quién creó<br>qué?</h1>
-                        <p class="intro-lede">Tú eres el jurado creativo.</p>
-                        <p class="intro-body">
-                          La IA puede generar una imagen, escribir un texto o transformar una idea.
-                          Pero la pregunta importante es otra: <em>¿dónde estuvo realmente el aporte humano?</em>
-                        </p>
-                        <p class="intro-body intro-body--tight">
-                          Te mostraremos 8 casos. Analiza el proceso, toma una decisión y descubre
-                          qué tan fácil —o difícil— es determinar quién creó qué.
-                        </p>
-                        <button class="btn btn--primary" id="btn-start">Empezar el caso</button>
-                      </section>
-
-                      <!-- QUIZ -->
-                      <section class="screen screen--quiz" id="screen-quiz">
-                        <div class="progress" id="progress" aria-hidden="true"></div>
-
-                        <div class="case-card">
-                          <p class="case-label" id="case-label">Caso 01</p>
-                          <h2 class="case-title" id="case-title"></h2>
-                          <div class="case-scenario" id="case-scenario"></div>
-                          <p class="case-prompt" id="case-prompt"></p>
-                          <div class="options" id="options"></div>
-
-                          <div class="verdict" id="verdict">
-                            <div class="verdict-seal" aria-hidden="true">
-                              <span class="verdict-seal-mark">◆</span>
-                            </div>
-                            <p class="verdict-kicker">Veredicto</p>
-                            <div class="verdict-text" id="verdict-text"></div>
-                            <p class="verdict-note" id="verdict-note"></p>
-                            <button class="btn btn--primary" id="btn-next">Siguiente caso →</button>
-                          </div>
-                        </div>
-                      </section>
-
-                      <!-- RESULT -->
-                      <section class="screen screen--result" id="screen-result">
-                        <div class="diamond-field" aria-hidden="true">
-                          <span class="drift d1">✦</span>
-                          <span class="drift d2">◆</span>
-                        </div>
-                        <p class="eyebrow">Tu resultado</p>
-                        <p class="result-emoji" id="result-emoji"></p>
-                        <h2 class="result-title" id="result-title"></h2>
-                        <p class="result-score" id="result-score"></p>
-                        <div class="result-body" id="result-body"></div>
-
-                        <div class="insight">
-                          <p class="insight-kicker">Insight SINERG.ia ✦</p>
-                          <p class="insight-text">
-                            Una inteligencia artificial puede participar en una creación. Puede generar.
-                            Puede sugerir. Puede transformar. Puede incluso dejar señales de que estuvo ahí.
-                          </p>
-                          <p class="insight-text">
-                            Pero ninguna de esas cosas responde por sí sola: quién tuvo la idea, quién tomó
-                            las decisiones, quién transformó el resultado y dónde estuvo realmente el aporte humano.
-                          </p>
-                          <p class="insight-signature">La IA no nos reemplaza. Nos potencia.</p>
-                        </div>
-
-                        <div class="result-actions">
-                          <button class="btn btn--primary" id="btn-share">Compartir mi resultado</button>
-                          <button class="btn btn--ghost" id="btn-restart">Repetir el cuestionario</button>
-                        </div>
-                      </section>
-
-                    </div>
-                    <!-- FIN DEL JUEGO -->
-
+                <div>
+                  <span class="ep-name">¿Quién creó qué? — El jurado creativo</span>
+                </div>
+                <div class="release-subtitle">
+                  Se desbloquea el <span class="release-date-text">...</span>
                 </div>
               </div>
-            </li>
-            <!-- ========== fin Temporada 1 ========== -->
+              <span class="chev badge-status">...</span>
+            </button>
 
-            <!--
+            <div class="episode-body">
+              <div class="episode-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <ol class="step-list">
+                  <li><strong>Lee el caso:</strong> Te mostraremos 8 escenarios donde la IA participó en la generación
+                    de una idea, imagen o texto.</li>
+                  <li><strong>Analiza el proceso:</strong> Revisa la situación inicial y el prompt que se utilizó.
+                  </li>
+                  <li><strong>Toma tu decisión:</strong> Vota dónde crees que estuvo realmente el aporte humano en
+                    cada caso.</li>
+                  <li><strong>Descubre tu resultado:</strong> Al finalizar, verás qué tan afinado está tu criterio
+                    como jurado creativo.</li>
+                </ol>
+
+
+                <!-- INICIO DEL JUEGO: ¿QUIÉN CREÓ QUÉ? -->
+                <div class="stage stage--embedded">
+
+                  <!-- INTRO -->
+                  <section class="screen screen--intro is-active" id="screen-intro">
+                    <div class="diamond-field" aria-hidden="true">
+                      <span class="drift d1">◆</span>
+                      <span class="drift d2">✦</span>
+                      <span class="drift d3">◆</span>
+                      <span class="drift d4">✦</span>
+                    </div>
+                    <p class="eyebrow">Episodio 07 · SINERG.ia</p>
+                    <h1 class="intro-title">¿Quién creó<br>qué?</h1>
+                    <p class="intro-lede">Tú eres el jurado creativo.</p>
+                    <p class="intro-body">
+                      La IA puede generar una imagen, escribir un texto o transformar una idea.
+                      Pero la pregunta importante es otra: <em>¿dónde estuvo realmente el aporte humano?</em>
+                    </p>
+                    <p class="intro-body intro-body--tight">
+                      Te mostraremos 8 casos. Analiza el proceso, toma una decisión y descubre
+                      qué tan fácil —o difícil— es determinar quién creó qué.
+                    </p>
+                    <button class="btn btn--primary" id="btn-start">Empezar el caso</button>
+                  </section>
+
+                  <!-- QUIZ -->
+                  <section class="screen screen--quiz" id="screen-quiz">
+                    <div class="progress" id="progress" aria-hidden="true"></div>
+
+                    <div class="case-card">
+                      <p class="case-label" id="case-label">Caso 01</p>
+                      <h2 class="case-title" id="case-title"></h2>
+                      <div class="case-scenario" id="case-scenario"></div>
+                      <p class="case-prompt" id="case-prompt"></p>
+                      <div class="options" id="options"></div>
+
+                      <div class="verdict" id="verdict">
+                        <div class="verdict-seal" aria-hidden="true">
+                          <span class="verdict-seal-mark">◆</span>
+                        </div>
+                        <p class="verdict-kicker">Veredicto</p>
+                        <div class="verdict-text" id="verdict-text"></div>
+                        <p class="verdict-note" id="verdict-note"></p>
+                        <button class="btn btn--primary" id="btn-next">Siguiente caso →</button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- RESULT -->
+                  <section class="screen screen--result" id="screen-result">
+                    <div class="diamond-field" aria-hidden="true">
+                      <span class="drift d1">✦</span>
+                      <span class="drift d2">◆</span>
+                    </div>
+                    <p class="eyebrow">Tu resultado</p>
+                    <p class="result-emoji" id="result-emoji"></p>
+                    <h2 class="result-title" id="result-title"></h2>
+                    <p class="result-score" id="result-score"></p>
+                    <div class="result-body" id="result-body"></div>
+
+                    <div class="insight">
+                      <p class="insight-kicker">Insight SINERG.ia ✦</p>
+                      <p class="insight-text">
+                        Una inteligencia artificial puede participar en una creación. Puede generar.
+                        Puede sugerir. Puede transformar. Puede incluso dejar señales de que estuvo ahí.
+                      </p>
+                      <p class="insight-text">
+                        Pero ninguna de esas cosas responde por sí sola: quién tuvo la idea, quién tomó
+                        las decisiones, quién transformó el resultado y dónde estuvo realmente el aporte humano.
+                      </p>
+                      <p class="insight-signature">La IA no nos reemplaza. Nos potencia.</p>
+                    </div>
+
+                    <div class="result-actions">
+                      <button class="btn btn--primary" id="btn-share">Compartir mi resultado</button>
+                      <button class="btn btn--ghost" id="btn-restart">Repetir el cuestionario</button>
+                    </div>
+                  </section>
+
+                </div>
+                <!-- FIN DEL JUEGO -->
+
+              </div>
+            </div>
+          </li>
+
+          <!-- Episodio T1E8 -->
+          <li class="episode-item" data-release="2026-08-20T17:00:00-03:00">
+            <button class="episode-toggle" onclick="toggleEpisode(this)">
+              <div class="ep-header-info">
+                <div class="ep-title-row">
+                  <span class="ep-num">Episodio 8</span>
+                </div>
+                <div>
+                  <span class="ep-name">¿Quién creó qué? — El jurado creativo</span>
+                </div>
+                <div class="release-subtitle">
+                  Se desbloquea el <span class="release-date-text">...</span>
+                </div>
+              </div>
+              <span class="chev badge-status">...</span>
+            </button>
+
+            <div class="episode-body">
+              <div class="episode-inner">
+                <span class="activity-label">Actividad práctica</span>
+
+                <div id="sng8-widget" class="sng8-wrap">
+
+                  <div class="sng8-header">
+                    <span class="sng8-eyebrow">SINERG.ia · Episodio 8</span>
+                    <h2>¿IA o puro humo?</h2>
+                    <p class="sng8-sub">Pon a prueba tu detector de humo tecnológico 🔎</p>
+                  </div>
+
+                  <!-- Pantalla de registro -->
+                  <div class="sng8-card" id="sng8-register">
+                    <div class="sng8-instructions" style="margin-top:0;">
+                      Antes de empezar, cuéntanos quién eres. Al final vas a poder descargar tu resultado. 🎁
+                    </div>
+                    <div class="sng8-field" id="sng8-field-name">
+                      <label for="sng8-input-name">Nombre</label>
+                      <input type="text" id="sng8-input-name" placeholder="¿Cómo te llamas?">
+                      <div class="sng8-field-error">Escribe tu nombre para continuar.</div>
+                    </div>
+                    <div class="sng8-field" id="sng8-field-email">
+                      <label for="sng8-input-email">Correo</label>
+                      <input type="email" id="sng8-input-email" placeholder="tucorreo@ejemplo.com">
+                      <div class="sng8-field-error">Escribe un correo válido.</div>
+                    </div>
+                    <div class="sng8-field" id="sng8-field-country">
+                      <label for="sng8-input-country">País</label>
+                      <input type="text" id="sng8-input-country" placeholder="¿De qué país eres?">
+                      <div class="sng8-field-error">Cuéntanos tu país para continuar.</div>
+                    </div>
+                    <button class="sng8-start-btn" id="sng8-start-btn">Empezar el reto →</button>
+                    <p class="sng8-privacy-note">Tus datos solo se usan para personalizar tu resultado.</p>
+                  </div>
+
+                  <!-- Quiz -->
+                  <div id="sng8-quiz-wrap" style="display:none;">
+                    <div class="sng8-counter" id="sng8-counter">Pregunta 1 de 8</div>
+                    <div class="sng8-progress-bar">
+                      <div class="sng8-progress-fill" id="sng8-progress"></div>
+                    </div>
+
+                    <div class="sng8-card" id="sng8-quiz-area">
+                      <p class="sng8-question" id="sng8-question"></p>
+                      <div class="sng8-options">
+                        <button class="sng8-btn" id="sng8-btn-true" data-value="true">VERDADERO</button>
+                        <button class="sng8-btn" id="sng8-btn-false" data-value="false">FALSO</button>
+                      </div>
+                      <div class="sng8-feedback" id="sng8-feedback">
+                        <span class="sng8-verdict" id="sng8-verdict"></span>
+                        <span id="sng8-explanation"></span>
+                        <span class="sng8-fun" id="sng8-fun"></span>
+                      </div>
+                      <button class="sng8-next" id="sng8-next">Siguiente →</button>
+                    </div>
+                  </div>
+
+                  <!-- Resultado -->
+                  <div class="sng8-card sng8-result" id="sng8-result" style="display:none;">
+                    <div class="sng8-badge" id="sng8-badge"></div>
+                    <p class="sng8-result-greeting" id="sng8-result-greeting"></p>
+                    <div class="sng8-result-title" id="sng8-result-title"></div>
+                    <div class="sng8-result-score" id="sng8-result-score"></div>
+                    <p class="sng8-result-desc" id="sng8-result-desc"></p>
+                    <div class="sng8-reflection" id="sng8-reflection">
+                      <strong>Para ti y para quien quieras contarle</strong>
+                      <span id="sng8-reflection-text"></span>
+                    </div>
+                    <p class="sng8-closing">Que tenga IA no es una garantía. Entender, verificar y preguntar también es
+                      parte de usar tecnología.</p>
+                    <div class="sng8-result-actions">
+                      <button class="sng8-download" id="sng8-download">⬇️ Descargar mi resultado</button>
+                      <button class="sng8-restart" id="sng8-restart">Volver a jugar</button>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </li>
+          <!-- ========== fin Temporada 1 ========== -->
+
+          <!--
       Para una Temporada 2, se duplica todo el bloque <div class="season"> ... </div>
       de arriba, se cambia el título y se agrega sus <li class="episode-item"> con
       la misma estructura que el Episodio 1 :D
@@ -632,6 +733,7 @@
 
   <script src="/js/script.js"></script>
   <script src="/js/game.js"></script>
+  <script src="/js/ep8script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // Inicialización Episodio 4
@@ -869,10 +971,10 @@
     });
 
   </script>
-  
+
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">↑</button>
   <script src="/js/script.js"></script>
-  <script src="../js/ep7script.js"></script>
+  <script src="/js/ep7script.js"></script>
 </body>
 
 </html>
